@@ -1,0 +1,32 @@
+.jumbotron {
+    border-radius: 0;
+    margin: 0;
+}
+
+.even {
+    background-color: #444;
+    color: whitesmoke;
+}
+
+.flexing {
+    display: flex;
+}
+
+.flexing > div {
+    flex: 1;
+}
+
+@media screen and (max-width: 480px) {
+    .display-3 {
+        font-size: 2.5rem !important;
+    }
+
+    .jumbotron {
+        text-align: center;
+    }
+
+    .flexing {
+        display: block;
+        padding: 10px;
+    }
+}

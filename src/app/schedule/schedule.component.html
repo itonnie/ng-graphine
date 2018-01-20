@@ -1,0 +1,136 @@
+<nav>
+  <mat-toolbar color="primary">
+    <nav class="menu">
+      <ul class="clearfix">
+        <li><a>Residential Services</a>
+          <ul class="submenu">
+            <li><a (click)="schedule(1, 'Kitchen')">Kitchen</a></li>
+            <li><a (click)="schedule(1, 'Laundry')">Laundry</a></li>
+            <li><a (click)="schedule(1, 'Appliances')">Appliances</a></li>
+            <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning')">Refrigeration and Air Conditioning</a></li>
+            <li><a (click)="schedule(1, 'Power Generators')">Power Generators</a></li>
+            <li><a (click)="schedule(1, 'Security Systems')">Security Systems</a></li>
+            <li><a (click)="schedule(1, 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
+          </ul>
+        </li>
+        <li><a>Hotel & Medical Institutions</a>
+          <ul class="submenu">
+              <li><a (click)="schedule(2, 'Kitchen')">Kitchen</a></li>
+              <li><a (click)="schedule(2, 'Laundry')">Laundry</a></li>
+              <li><a (click)="schedule(2, 'Appliances')">Appliances</a></li>
+              <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning')">Refrigeration and Air Conditioning</a></li>
+              <li><a (click)="schedule(2, 'Laboratory Equipment')">Laboratory Equipment</a></li>
+              <li><a (click)="schedule(2, 'Power Generators')">Power Generators</a></li>
+              <li><a (click)="schedule(2, 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
+              <li><a (click)="schedule(2, 'Security Systems')">Security Systems</a></li>
+              <li><a (click)="schedule(2, 'Steam Boilers')">Steam Boilers</a></li>
+          </ul>
+        </li>
+        <li><a>Commercial Services</a>
+          <ul class="submenu">
+              <li><a (click)="schedule(3, 'Kitchen')">Kitchen</a></li>
+              <li><a (click)="schedule(3, 'Laundry')">Laundry</a></li>
+              <li><a (click)="schedule(3, 'Appliances')">Appliances</a></li>
+              <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning')">Refrigeration and Air Conditioning</a></li>
+              <li><a (click)="schedule(3, 'Power Generators')">Power Generators</a></li>
+              <li><a (click)="schedule(3, 'Security Systems')">Security Systems</a></li>
+              <li><a (click)="schedule(3, 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
+              <li><a (click)="schedule(3, 'Steam Boilers')">Steam Boilers</a></li>
+          </ul>
+        </li>
+        <li><a>Building Repairs</a>
+          <ul class="submenu">
+            <li><a (click)="schedule(4, 'Electrical Works')">Electrical Works</a></li>
+            <li><a (click)="schedule(4, 'Water System and Drainage')">Water System and Drainage</a></li>
+            <li><a (click)="schedule(4, 'Interior works')">Interior works</a></li>
+            <li><a (click)="schedule(4, 'Civil Works')">Civil Works</a></li>
+          </ul>
+        </li>
+        <li><a>Entertainment Equipment</a>
+          <ul class="submenu">
+            <li><a (click)="schedule(5, 'Audi Visual Equipment')">Audi Visual Equipment</a></li>
+            <li><a (click)="schedule(5, 'Betting Machines')">Betting Machines</a></li>
+            <li><a (click)="schedule(5, 'Kids Fun Machines')">Kids Fun Machines</a></li>
+            <li><a (click)="schedule(5, 'Bouncing Castle')">Bouncing Castle</a></li>
+            <li><a (click)="schedule(5, 'Kids Trains')">Kids Trains</a></li>
+            <li><a (click)="schedule(5, 'Roll Caster & Speed Boats')">Roll Caster & Speed Boats</a></li>
+            <li><a (click)="schedule(5, 'Kids Swings')">Kids Swings</a></li>
+            <li><a (click)="schedule(5, 'Power Generators')">Power Generators</a></li>
+            <li><a (click)="schedule(5, 'Security Systems')">Security Systems</a></li>
+          </ul>
+        </li>
+        <li><a>Green Energy Solutions</a>
+          <ul class="submenu">
+            <li><a (click)="schedule(6, 'Maintenance')">Maintenance</a></li>
+            <li><a (click)="schedule(6, 'Installation')">Installation</a></li>
+            <li><a (click)="schedule(6, 'Energy Audit')">Energy Audit</a></li>
+            <li><a (click)="schedule(6, 'Energy Saving Consultant')">Energy Saving Consultant</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </mat-toolbar>
+</nav>
+
+<div class="jumbotron">
+  <div class="flexbox">
+    <div class="leftPanel">
+      <h1 style="font-family: 'Segoe UI Light';">{{category}}</h1>
+
+      <p class="lead"> Thank you for choosing us to do your <strong>{{name}}</strong> for you.</p>
+      <p class="lead"> Please book an appointment for our experts to come to you at your own convinient time to make you a quotation and view the job.</p>
+    </div>
+
+    <div class="rightPanel">
+      <div class="card">
+        <div class="card-body">
+
+          Schedule a time that is convinient for you
+
+          <br>
+
+          <form [formGroup]="rForm" (ngSubmit)="scheduleAppointment(rForm.value)">
+            <div class="input-group">
+              <span class="input-group-addon" id="from">From:</span>
+              <input type="datetime-local" name="from" id="from" class="form-control" formControlName="from">
+            </div>
+            <div class="alertbox" *ngIf="!rForm.controls['from'].valid && rForm.controls['from'].touched"> This is required</div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon" id="to">To:</span>
+              <input type="datetime-local" class="form-control" name="to" id="to" formControlName="to">
+            </div>
+            <div class="alertbox" *ngIf="!rForm.controls['to'].valid && rForm.controls['to'].touched"> This is required</div>
+            <br>
+            <span class="label label-default">County</span>
+            <mat-select [placeholder]="County" formControlName="select">
+              <mat-option *ngFor="let county of counties" [value]="county">
+                {{county}}
+              </mat-option>
+            </mat-select>
+            <div class="alertbox" *ngIf="!rForm.controls['select'].valid && rForm.controls['select'].touched">Choose a county</div>
+            <br>
+            <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Full Names" formControlName="fullname">
+            <div class="alertbox" *ngIf="!rForm.controls['fullname'].valid && rForm.controls['fullname'].touched">Give us a name...</div>
+            <br>
+            <input type="text" name="town" id="town" class="form-control" placeholder="Town" formControlName="town">
+            <div class="alertbox" *ngIf="!rForm.controls['town'].valid && rForm.controls['town'].touched">Even a close town is enough</div>
+            <br>
+            <input type="text" name="street" id="street" class="form-control" formControlName="street" placeholder="Street Address">
+            <div class="alertbox" *ngIf="!rForm.controls['street'].valid && rForm.controls['street'].touched">Make it easier to find you...</div>
+            <br>
+            <input type="number" name="phone" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
+            <div class="alertbox" *ngIf="!rForm.controls['phone'].valid && rForm.controls['phone'].touched">We'd like to call on arrival</div>
+            <br>
+            <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+            <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">You'll need to recieve important notifications</div>
+            <br>
+            <input class="btn btn-success" color="primary" type="submit" value="Schedule Appointment" [disabled]="!rForm.valid" />
+            
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

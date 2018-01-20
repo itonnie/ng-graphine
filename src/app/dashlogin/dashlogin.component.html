@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card>
+    <div class="text-center">
+      <h3>Login as {{acc_type}}</h3>
+
+      <img src="./assets/icons/login.png" height="100px" width="100px" alt="Login Image">
+
+      <br>
+      <p>...</p>
+      <br>
+
+      <form [formGroup]="adminLoginForm" (submit)="adminLoginSubmit(adminLoginForm.value)" class="adminLogin">
+        <mat-form-field>
+          <mat-select placeholder="Access Level" formControlName="access_level" [(value)]="access_level">
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="technician">Technician</mat-option>
+            <mat-option value="manager">Manager</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="alertbox" *ngIf="!adminLoginForm.controls['access_level'].valid && adminLoginForm.controls['access_level'].touched">Please specify your access level</div>
+        <br>
+        <input type="text" class="form-control" placeholder="email" formControlName="email">
+        <div class="alertbox" *ngIf="!adminLoginForm.controls['email'].valid && adminLoginForm.controls['email'].touched">Invalid email address</div>
+        <br>
+        <input type="password" class="form-control" placeholder="password" formControlName="password">
+        <div class="alertbox" *ngIf="!adminLoginForm.controls['password'].valid && adminLoginForm.controls['password'].touched">Password too short</div>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Login">
+      </form>
+    </div>
+  </mat-card>
+</div>

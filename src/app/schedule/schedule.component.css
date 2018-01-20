@@ -1,0 +1,49 @@
+.flexbox {
+    display: flex;
+}
+
+.rightPanel {
+    flex: 1.5;
+}
+
+.leftPanel {
+    flex: 2;
+}
+
+.alertbox {
+    background: #F72929;
+    padding: 7px;
+    font-size: .9em;
+    margin-top: 5px;
+    color: white;
+    margin-bottom: 5px;
+    display: inline-block;
+    animation: .6s alertAnim ease;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+}
+
+@media screen and (max-width: 480px) {
+    .flexbox {
+        display: block;
+    }
+
+    .leftPanel {
+        text-align: center;
+    }
+}
+
+@keyframes alertAnim {
+    from {
+        opacity: 0;
+        transform: translateY(-20px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

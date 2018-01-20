@@ -1,0 +1,21 @@
+.alertbox {
+    background: #F72929;
+    padding: 7px;
+    font-size: .9em;
+    margin-top: 5px;
+    color: white;
+    margin-bottom: 5px;
+    display: inline-block;
+    animation: .6s alertAnim ease;
+}
+
+.adminLogin {
+    width: 500px;
+    margin: 0px auto;
+}
+
+mat-card {
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 50px;
+}

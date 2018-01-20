@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.jumbotron {
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.social {
+    margin: 10px;
+}
+
+.space {
+    flex: 1 1 auto;
+}
+
+.clearfix:after {
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    width:100%;
+    margin:0px auto;
+}
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-size: small;
+}
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#f8f8f8;
+}
+ 
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color: white;
+}
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    position:relative;
+}
+ 
+.menu > ul > li > a {
+    padding:10px 10px;
+    border-bottom: 3px solid transparent;
+}
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    border-bottom: 3px solid white;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .submenu {
+    z-index: 5;
+    opacity:1;
+    display: block;
+}
+ 
+.submenu {
+    width: 300px;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    display: none;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#0e005f;
+    margin-top: 5px;
+}
+ 
+.submenu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.submenu li a {
+    padding:10px 30px;
+    display:block;
+    cursor: pointer;
+}
+ 
+.submenu li a:hover, .submenu .current-item a {
+    background:#0400eb;
+}

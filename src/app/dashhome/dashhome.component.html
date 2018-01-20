@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  Dashboard
+  <span class="space"></span>
+  <button mat-button>Orders</button>
+  <button mat-button *ngIf="add_technician == true">Staff</button>
+  <button mat-button *ngIf="generate_report == true">Site Stats</button>
+  <button mat-button *ngIf="view_clients == true">Clients</button>
+  <button mat-button (click)="logUserOut()">Log out</button>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Pending">Pending Stuff</mat-tab>
+  <mat-tab label="approved">Approved Stuff</mat-tab>
+</mat-tab-group>
+
+<!--
+<div class="tablewrapper">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Sub - Category</th>
+        <th>Service</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let p of pending">
+        <td>{{p.fullname}}</td>
+        <td>{{p.county}}</td>
+        <td>{{p.category}}</td>
+        <td>{{p.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+-->

@@ -1,0 +1,45 @@
+.coverimage {
+    padding: 0px;
+    height: 400px;
+    margin-bottom: 0px;
+}
+
+.jumbotron {
+    border-radius: 0px;
+}
+
+.cover {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle-text {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 1em 1.6em;
+    color: white;
+}
+
+.coverimage:hover .cover {
+    opacity: 0.3;
+  }
+  
+.coverimage:hover .middle-text {
+    opacity: 1;
+    background-color: rgb(61, 65, 105);
+}
+  
+.text {
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
