@@ -8,12 +8,42 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      console.log(slides.length);
+
+      /*
+      if(n > slides.length) {
+        slideIndex = 1;
+      }
+      if(n < 1) {
+        slideIndex = slides.length;
+      }
+      console.log(slides.length);
+      for(i=0; i<slides.length; i++) {
+        
+      }*/
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function slide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currenctSlide(n) {
+      showSlides(slideIndex = n);
+    }
+  }
 
   ngOnInit() {
   }
   
-  schedule(id, name) {
+  schedule(id, sub, subsub) {
     var category;
     switch(id) {
       case 1:
@@ -42,7 +72,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/schedule'], {
       queryParams: {
         category: category,
-        name: name
+        sub: sub,
+        subsub: subsub
       }
     });
   }

@@ -12,7 +12,7 @@ export class AppdataService {
     return this.http.get('assets/json/counties.json').map(res => res.json());
   }
 
-  makeAppointment(from, to, county, fullname, town, street, phone, category, name) {
+  makeAppointment(from, to, county, fullname, town, street, phone, category, sub, subsub) {
     return this.http.post('http://localhost:3000/addschedule', {
       from: from,
       to: to,
@@ -22,12 +22,14 @@ export class AppdataService {
       town: town,
       street: street,
       phone: phone,
-      name: name
+      sub: sub,
+      subsub: subsub
     }).map(res => res.json());
   }
 
-  adminlogin(email: String, password: String) {
+  login(type: String, email: String, password: String) {
     return this.http.post("http://localhost:3000/auth/login", {
+      type: type,
       email: email,
       password: password
     }).map(res => res.json());

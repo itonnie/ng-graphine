@@ -16,6 +16,10 @@
     flex: 1;
 }
 
+.googlemap {
+    height: 400px;
+}
+
 @media screen and (max-width: 480px) {
     .display-3 {
         font-size: 2.5rem !important;

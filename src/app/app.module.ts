@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 //Material Components
 import { MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule } from "@angular/material";
-import { MatListModule, MatSelectModule, MatCardModule, MatTabsModule } from "@angular/material";
+import { MatListModule, MatSelectModule, MatCardModule, MatTabsModule, MatSnackBarModule } from "@angular/material";
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { ScheduleComponent } from "./schedule/schedule.component";
@@ -45,7 +45,8 @@ import { DashloginComponent } from './dashlogin/dashlogin.component';
     MatListModule,
     MatSelectModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule,
   ],
   providers: [ AppdataService, SocketsService],
   bootstrap: [AppComponent]

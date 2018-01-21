@@ -11,6 +11,11 @@ export class DashhomeComponent implements OnInit {
 
   username: String;
   pending: any[];
+  quoted: any[];
+  approved: any[];
+  completed: any[];
+  cancelled: any[];
+  history: any[];
   add_technician: Boolean;
   generate_report: Boolean;
   view_clients: Boolean;
@@ -28,6 +33,26 @@ export class DashhomeComponent implements OnInit {
         this.pending = data.data;
       });
 
+      this.link.getOrders("quoted").subscribe(data => {
+        this.quoted = data.data;
+      });
+
+      this.link.getOrders("approved").subscribe(data => {
+        this.approved = data.data;
+      });
+
+      this.link.getOrders("completed").subscribe(data => {
+        this.completed = data.data;
+      });
+
+      this.link.getOrders("cancelled").subscribe(data => {
+        this.cancelled = data.data;
+      });
+
+      this.link.getOrders("").subscribe(data => {
+        this.history = data.data;
+      });
+
     }
   }
 
@@ -35,7 +60,7 @@ export class DashhomeComponent implements OnInit {
   }
 
   logUserOut() {
-    window.localStorage.removeItem("username");
+    window.localStorage.clear();
     this.router.navigate(["/dashlogin"]);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatSnackBar } from "@angular/material";
 
 import { AppdataService } from "../appdata.service";
 
@@ -15,7 +16,8 @@ export class ScheduleComponent implements OnInit {
   rForm: FormGroup;
 
   category: String;
-  name: String;
+  sub: String;
+  subsub: String;
   counties: String[];
 
   from: Date;
@@ -36,7 +38,7 @@ export class ScheduleComponent implements OnInit {
   pherr: String;
 
   constructor(
-    public ar: ActivatedRoute, 
+    public ar: ActivatedRoute, private snackbar: MatSnackBar, 
     public router: Router, 
     public appdata: AppdataService,
     public fb: FormBuilder
@@ -58,7 +60,8 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
     this.ar.queryParams.subscribe(params => {
       this.category = params['category'];
-      this.name = params['name'];
+      this.sub = params['sub'];
+      this.subsub = params['subsub'];
     });
 
     this.appdata.getCounties().subscribe(data => {
@@ -68,13 +71,15 @@ export class ScheduleComponent implements OnInit {
 
   getScheduleInfo(category, name) {
     this.category = category;
-    this.name = name;
+    this.sub = name;
   }
 
   scheduleAppointment(form) {
-    this.appdata.makeAppointment(form.from, form.to, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.name).subscribe(data => {
+    this.appdata.makeAppointment(form.from, form.to, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.sub, this.subsub).subscribe(data => {
       if(data.ok == true) {
-        alert("Order for id " + data.id + " has been recieved.");
+        this.snackbar.open("Order id " + data.id.toString().toUpperCase() + " has been recieved", "dismiss", {
+          duration: 3000
+        });
       }
     });
   }

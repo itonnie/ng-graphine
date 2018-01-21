@@ -9,32 +9,153 @@
 </mat-toolbar>
 
 <mat-tab-group>
-  <mat-tab label="Pending">Pending Stuff</mat-tab>
-  <mat-tab label="approved">Approved Stuff</mat-tab>
+  <mat-tab label="Pending">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let p of pending">
+            <td>{{p.fullname}}</td>
+            <td>{{p.county}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Quoted">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let q of quoted">
+            <td>{{q.fullname}}</td>
+            <td>{{q.county}}</td>
+            <td>{{q.category}}</td>
+            <td>{{q.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Approved">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let a of approved">
+            <td>{{a.fullname}}</td>
+            <td>{{a.county}}</td>
+            <td>{{a.category}}</td>
+            <td>{{a.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Completed">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let co of completed">
+            <td>{{co.fullname}}</td>
+            <td>{{co.county}}</td>
+            <td>{{co.category}}</td>
+            <td>{{co.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Cancelled">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let c of cancelled">
+            <td>{{c.fullname}}</td>
+            <td>{{c.county}}</td>
+            <td>{{c.category}}</td>
+            <td>{{c.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="All">
+    <div class="tablewrapper">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Sub - Category</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let all of history">
+            <td>{{all.fullname}}</td>
+            <td>{{all.county}}</td>
+            <td>{{all.category}}</td>
+            <td>{{all.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
 </mat-tab-group>
-
-<!--
-<div class="tablewrapper">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Category</th>
-        <th>Sub - Category</th>
-        <th>Service</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <tr *ngFor="let p of pending">
-        <td>{{p.fullname}}</td>
-        <td>{{p.county}}</td>
-        <td>{{p.category}}</td>
-        <td>{{p.name}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
--->

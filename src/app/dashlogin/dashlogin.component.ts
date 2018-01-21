@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: 'app-dashlogin',
@@ -14,7 +15,8 @@ export class DashloginComponent implements OnInit {
   access_level: any;
   adminLoginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private live: AppdataService, private router: Router) {
+  constructor(private fb: FormBuilder, private live: AppdataService, private router: Router,
+    private snack: MatSnackBar) {
     this.adminLoginForm = fb.group({
       "access_level": [null],
       "email": [null, Validators.compose([ Validators.email ])],
@@ -28,9 +30,11 @@ export class DashloginComponent implements OnInit {
   adminLoginSubmit(value) {
     console.log(value);
     if(this.adminLoginForm.controls['email'].invalid || this.adminLoginForm.controls['password'].invalid) {
-      //Invalid data
+      this.snack.open("Please input valid data", "Dismiss", {
+        duration: 3000
+      })
     } else {
-      this.live.adminlogin(value.email, value.password).subscribe(response => {
+      this.live.login(value.access_level, value.email, value.password).subscribe(response => {
         console.log(response);
         if(response.ok == true) {
           window.localStorage.setItem("username", response.data.username);
@@ -50,7 +54,10 @@ export class DashloginComponent implements OnInit {
 
           this.router.navigate(["/dashhome"]);
         } else {
-          alert(response.message);
+          this.snack.open(response.message, "Dismiss", {
+            duration: 3000,
+            verticalPosition: "top"
+          })
         }
       })
     }

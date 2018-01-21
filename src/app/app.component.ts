@@ -13,7 +13,7 @@ export class AppComponent {
   dashboard: Boolean = false;
   constructor(private router: Router, private io: SocketsService) {
     navigator.geolocation.getCurrentPosition(pos => {
-      this.io.sendLocation(pos);
+      //this.io.sendLocation(pos);
       console.log(pos);
     });
 
