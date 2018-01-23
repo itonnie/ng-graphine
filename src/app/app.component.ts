@@ -32,6 +32,22 @@ export class AppComponent {
           this.dashboard = true;
         break;
 
+        case "/clients":
+          this.dashboard = true;
+        break;
+
+        case "/staff":
+          this.dashboard = true;
+        break;
+
+        case "/stats":
+          this.dashboard = true;
+        break;
+
+        case "/staffdetail":
+          this.dashboard = true;
+        break;
+
         default:
           this.dashboard = false;
         break;

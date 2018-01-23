@@ -8,7 +8,11 @@ import "rxjs/add/operator/map";
 export class AppdataService {
 
   private idSource = new BehaviorSubject<String>("");
+  private staffIdSource = new BehaviorSubject<String>("");
+  private stafflevel = new BehaviorSubject<String>("");
   currentId = this.idSource.asObservable();
+  currentStaffId = this.staffIdSource.asObservable();
+  currentLevel = this.stafflevel.asObservable();
 
   constructor(public http: Http) { }
 
@@ -53,6 +57,11 @@ export class AppdataService {
     this.idSource.next(id);
   }
 
+  setStaffId(id: String, type: String) {
+    this.staffIdSource.next(id);
+    this.stafflevel.next(type);
+  }
+
   quoteOrder(id: String, quotation: Number) {
     return this.http.post("http://localhost:3000/admin/quote", {
       id: id,
@@ -68,6 +77,41 @@ export class AppdataService {
 
   completeOrder(id: String) {
     return this.http.get("http://localhost:3000/admin/paid/"+id).map(res => res.json());
+  }
+
+  addTechnician(username, email, phone, staffid, title) {
+    return this.http.post("http://localhost:3000/admin/addtechnician", {
+      username: username,
+      phone: phone,
+      email: email,
+      staff_id: staffid,
+      title: title
+    }).map(res => res.json());
+  }
+
+  addManager(username, email, phone, staffid) {
+    return this.http.post("http://localhost:3000/admin/addmanager", {
+      username: username,
+      phone: phone,
+      email: email,
+      staff_id: staffid
+    }).map(res => res.json());
+  }
+
+  getTechnicians() {
+    return this.http.get("http://localhost:3000/users/technicians").map(res => res.json());
+  }
+
+  getManagers() {
+    return this.http.get("http://localhost:3000/users/managers").map(res => res.json());
+  }
+
+  viewStaff(id, level) {
+    if(level == "technician") {
+      return this.http.get("http://localhost:3000/users/technician/"+id).map(res => res.json());
+    } else if(level == "manager") {
+      return this.http.get("http://localhost:3000/users/manager/"+id).map(res => res.json());
+    }
   }
 
 }

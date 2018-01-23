@@ -9,13 +9,14 @@ import { AppdataService } from "../appdata.service";
 })
 export class DashhomeComponent implements OnInit {
 
-  username: String;
   pending: any[];
   quoted: any[];
   approved: any[];
   completed: any[];
   cancelled: any[];
   history: any[];
+  
+  username: String;
   add_technician: Boolean;
   generate_report: Boolean;
   view_clients: Boolean;
@@ -79,6 +80,30 @@ export class DashhomeComponent implements OnInit {
     this.link.completeOrder(id).subscribe(data => {
       this.approved = data.data;
     })
+  }
+
+  navigate(where) {
+    switch(where) {
+      case "orders":
+        this.router.navigate(['/dashhome']);
+      break;
+
+      case "staff":
+        this.router.navigate(['/staff']);
+      break;
+
+      case "stats":
+        this.router.navigate(['/stats']);
+      break;
+
+      case "clients":
+        this.router.navigate(['/clients']);
+      break;
+
+      default:
+        this.router.navigate(['/dashhome']);
+      break;
+    }
   }
 
 }

@@ -1,0 +1,138 @@
+<mat-toolbar color="primary">
+  Dashboard
+  <span class="space"></span>
+  <button mat-button (click)="navigate('orders')">Orders</button>
+  <button mat-button *ngIf="add_technician == true" (click)="navigate('staff')">Staff</button>
+  <button mat-button *ngIf="generate_report == true" (click)="navigate('stats')">Site Stats</button>
+  <button mat-button *ngIf="view_clients == true" (click)="navigate('clients')">Clients</button>
+  <button mat-button (click)="logUserOut()">Log out</button>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Technicians">
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Technician
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-icon>account_circle</mat-icon>
+            Create new account, default password is 12345678*
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="add_tech" (submit)="addtechnician(add_tech.value)">
+          <mat-form-field>
+            <input type="text" placeholder="Username" matInput formControlName="username">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="tel" placeholder="Phone" matInput formControlName="phone">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="email" placeholder="Email" matInput formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="text" placeholder="Staff ID" matInput formControlName="staff_id">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="text" placeholder="Job Title" matInput formControlName="title">
+          </mat-form-field>
+
+          <button type="submit" mat-button>Add Tech</button>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Staff ID</th>
+          <th>Title</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tech of technicians">
+          <td>{{tech.username}}</td>
+          <td>{{tech.phone}}</td>
+          <td>{{tech.email}}</td>
+          <td>{{tech.staff_id}}</td>
+          <td>{{tech.title}}</td>
+          <td>
+            <button mat-button (click)="viewStaffMember(tech._id, 'technician')">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </mat-tab>
+  <mat-tab label="Managers">
+
+      <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Managers
+              </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon>account_circle</mat-icon>
+                Create new manager, default password is 12345678*
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+    
+            <form [formGroup]="add_man" (submit)="addmanager(add_man.value)">
+              <mat-form-field>
+                <input type="text" placeholder="Username" matInput formControlName="username">
+              </mat-form-field>
+    
+              <mat-form-field>
+                <input type="tel" placeholder="Phone" matInput formControlName="phone">
+              </mat-form-field>
+    
+              <mat-form-field>
+                <input type="email" placeholder="Email" matInput formControlName="email">
+              </mat-form-field>
+    
+              <mat-form-field>
+                <input type="text" placeholder="Staff ID" matInput formControlName="staff_id">
+              </mat-form-field>
+    
+              <button type="submit" mat-button>Add Manager</button>
+            </form>
+          </mat-expansion-panel>
+        </mat-accordion>
+    
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Staff ID</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let man of managers">
+              <td>{{man.username}}</td>
+              <td>{{man.phone}}</td>
+              <td>{{man.email}}</td>
+              <td>{{man.staff_id}}</td>
+              <td>
+                <button mat-button (click)="viewStaffMember(man._id, 'manager')">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+  </mat-tab>
+</mat-tab-group>

@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
   Dashboard
   <span class="space"></span>
-  <button mat-button>Orders</button>
-  <button mat-button *ngIf="add_technician == true">Staff</button>
-  <button mat-button *ngIf="generate_report == true">Site Stats</button>
-  <button mat-button *ngIf="view_clients == true">Clients</button>
+  <button mat-button (click)="navigate('orders')">Orders</button>
+  <button mat-button *ngIf="add_technician == true" (click)="navigate('staff')">Staff</button>
+  <button mat-button *ngIf="generate_report == true" (click)="navigate('stats')">Site Stats</button>
+  <button mat-button *ngIf="view_clients == true" (click)="navigate('clients')">Clients</button>
   <button mat-button (click)="logUserOut()">Log out</button>
 </mat-toolbar>
 
@@ -91,7 +91,7 @@
             <td>{{a.price}}</td>
             <td>{{a.subsub}}</td>
             <td>
-              <button class="btn btn-default" title="When order has been paid and job has been completed.">Complete Order</button>
+              <button class="btn btn-default" title="When order has been paid and job has been completed." (click)="completeOrder(a._id)">Complete Order</button>
             </td>
           </tr>
         </tbody>
