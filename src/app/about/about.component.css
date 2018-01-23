@@ -1,6 +1,15 @@
 .jumbotron {
     border-radius: 0;
     margin: 0;
+    padding: 5px 50px;
+}
+
+.jumbotron h1 {
+    font-size: x-large;
+}
+
+.jumbotron p {
+    font-size: 16px;
 }
 
 .even {
@@ -17,7 +26,7 @@
 }
 
 .googlemap {
-    height: 400px;
+    height: 250px;
 }
 
 @media screen and (max-width: 480px) {

@@ -1,7 +1,7 @@
   <!-- PC Template -->
   <div class="container" *ngIf="isMobile === false; else mobile">
     <mat-toolbar class="header" *ngIf="dashboard == false;">
-      <img src="./assets/images/graphine_logo.png" height="70px" width="70px" alt="Graphine East Africa Limited">
+      <img src="./assets/images/graphine_logo.png" height="70px" width="70px" alt="Graphine East Africa Limited" (click)="goHome()">
       <span class="space"></span>
     
     

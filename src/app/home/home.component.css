@@ -29,6 +29,10 @@
     display: block;
 }
 
+.carousel-inner {
+    height: 350px;
+}
+
 .text {
     color: white;
     font-size: 16px;

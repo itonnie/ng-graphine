@@ -49,7 +49,7 @@ export class DashhomeComponent implements OnInit {
         this.cancelled = data.data;
       });
 
-      this.link.getOrders("").subscribe(data => {
+      this.link.getOrders("blank").subscribe(data => {
         this.history = data.data;
       });
 
@@ -62,6 +62,23 @@ export class DashhomeComponent implements OnInit {
   logUserOut() {
     window.localStorage.clear();
     this.router.navigate(["/dashlogin"]);
+  }
+
+  viewOrder(id) {   
+    this.link.viewOrderById(id);
+    this.router.navigate(['/order']);
+  }
+
+  approveOrder(id) {
+    this.link.approveOrder(id).subscribe(data => {
+      this.quoted = data.data;
+    })
+  }
+
+  completeOrder(id) {
+    this.link.completeOrder(id).subscribe(data => {
+      this.approved = data.data;
+    })
   }
 
 }

@@ -7,6 +7,7 @@ import { AboutComponent } from "./about/about.component";
 import { ScheduleComponent } from 'app/schedule/schedule.component';
 import { DashloginComponent } from "./dashlogin/dashlogin.component";
 import { DashhomeComponent } from "./dashhome/dashhome.component";
+import { OrderComponent } from "./order/order.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'dashhome',
     component: DashhomeComponent,
+  },
+  {
+    path: 'order',
+    component: OrderComponent
   }
 ];
 

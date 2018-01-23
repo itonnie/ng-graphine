@@ -19,6 +19,7 @@ import { AppdataService } from "./appdata.service";
 import { SocketsService } from './sockets.service';
 import { DashhomeComponent } from './dashhome/dashhome.component';
 import { DashloginComponent } from './dashlogin/dashlogin.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DashloginComponent } from './dashlogin/dashlogin.component';
     SignupComponent,
     ScheduleComponent,
     DashhomeComponent,
-    DashloginComponent
+    DashloginComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

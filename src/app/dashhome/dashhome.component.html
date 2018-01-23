@@ -19,6 +19,7 @@
             <th>Category</th>
             <th>Sub - Category</th>
             <th>Service</th>
+            <th>Action</th>
           </tr>
         </thead>
       
@@ -27,7 +28,11 @@
             <td>{{p.fullname}}</td>
             <td>{{p.county}}</td>
             <td>{{p.category}}</td>
-            <td>{{p.name}}</td>
+            <td>{{p.sub}}</td>
+            <td>{{p.subsub}}</td>
+            <td>
+              <button class="btn btn-default" (click)="viewOrder(p._id)">View</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -43,7 +48,8 @@
             <th>Location</th>
             <th>Category</th>
             <th>Sub - Category</th>
-            <th>Service</th>
+            <th>Price</th>
+            <th>Approve</th>
           </tr>
         </thead>
       
@@ -52,7 +58,11 @@
             <td>{{q.fullname}}</td>
             <td>{{q.county}}</td>
             <td>{{q.category}}</td>
-            <td>{{q.name}}</td>
+            <td>{{q.sub}}</td>
+            <td>{{q.price}}</td>
+            <td>
+              <button class="btn btn-success" (click)="approveOrder(q._id)" [disabled]="q.approved">Approve</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -66,9 +76,10 @@
           <tr>
             <th>Name</th>
             <th>Location</th>
-            <th>Category</th>
-            <th>Sub - Category</th>
-            <th>Service</th>
+            <th>Phone</th>
+            <th>Price</th>
+            <th>Appliance</th>
+            <th>Action</th>
           </tr>
         </thead>
       
@@ -76,8 +87,12 @@
           <tr *ngFor="let a of approved">
             <td>{{a.fullname}}</td>
             <td>{{a.county}}</td>
-            <td>{{a.category}}</td>
-            <td>{{a.name}}</td>
+            <td>{{a.phone}}</td>
+            <td>{{a.price}}</td>
+            <td>{{a.subsub}}</td>
+            <td>
+              <button class="btn btn-default" title="When order has been paid and job has been completed.">Complete Order</button>
+            </td>
           </tr>
         </tbody>
       </table>

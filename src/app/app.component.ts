@@ -28,6 +28,10 @@ export class AppComponent {
           this.dashboard = true;
         break;
 
+        case "/order":
+          this.dashboard = true;
+        break;
+
         default:
           this.dashboard = false;
         break;
@@ -38,6 +42,10 @@ export class AppComponent {
   toAdmin() {
     this.dashboard == true;
     this.router.navigate(['/dashhome']);
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
   }
 
 }

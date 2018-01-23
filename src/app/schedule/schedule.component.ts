@@ -69,9 +69,10 @@ export class ScheduleComponent implements OnInit {
     })
   }
 
-  getScheduleInfo(category, name) {
+  getScheduleInfo(category, name, subsub) {
     this.category = category;
     this.sub = name;
+    this.subsub = subsub;
   }
 
   scheduleAppointment(form) {
@@ -84,14 +85,14 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
-  schedule(id, name) {
+  schedule(id, name, subsub) {
     var category;
     switch(id) {
       case 1:
         category = "Residential Repair and Maintenance";
         break;
       case 2:
-        category = "Hotels and Medical Institutions Repair and Maintenance";
+        category = "Hotels and Institutions Repair and Maintenance";
         break;
       case 3:
         category = "Commercial Repair and Maintenance";
@@ -110,7 +111,7 @@ export class ScheduleComponent implements OnInit {
         break;
     }
 
-    this.getScheduleInfo(category, name);
+    this.getScheduleInfo(category, name, subsub);
   }
 
 }

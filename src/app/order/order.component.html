@@ -1,0 +1,98 @@
+<mat-toolbar color="primary">
+    <h3>Order for {{fullname}}</h3>
+    <span class="space"></span>
+    <button mat-raised-button color="accent" style="margin: 5px;">Cancel Order</button>
+    <button mat-raised-button color="primary" style="margin: 5px;">Generate Report</button>   
+</mat-toolbar>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card text-center">
+      <h3>Name</h3>
+      <h5>{{fullname}}</h5>
+
+      <hr style="width: 70%; margin: 0 auto;">
+
+      <h3>Phone</h3>
+      <h5>0{{phone}}</h5>
+
+      <hr style="width: 70%; margin: 0 auto;">
+
+      <h3>Email</h3>
+      <h5></h5>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><strong>County</strong></p>
+          <p><strong>Town</strong></p>
+          <p><strong>Street</strong></p>
+        </div>
+        <div class="col-sm-1">
+          <p><strong>:</strong></p>
+          <p><strong>:</strong></p>
+          <p><strong>:</strong></p>
+        </div>
+        <div class="col-sm-7">
+          <p class="text-muted">Nairobi</p>
+          <p class="text-muted">Utawala</p>
+          <p class="text-muted">Gesora Rd</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Work to has been scheduled to be viewed between <time datetime="2017"></time> to <time datetime="2018"></time></p>
+    </div>
+
+  </div>
+  <div class="col-sm-8">
+
+    <table class="table-hover table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Sub Category</th>
+          <th>Sub Sub Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{category}}</td>
+          <td>{{sub}}</td>
+          <td>{{subsub}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-group">
+          <li class="list-group-item">
+
+            <h3>Make a quotation...</h3>
+            
+            <div class="input-group">
+              <span class="input-group-addon">KES</span>
+              <input type="number" placeholder="Price" class="form-control" [(ngModel)]="quotation_box">
+            </div>
+
+          </li>
+
+          <li class="list-group-item">
+              <button mat-button (click)="quoteOrder(id, quotation_box)">Quote</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card text-center">
+          <h1>Price</h1>
+          <h1 class="display-3" style="color: rgb(8, 216, 8);">KES: {{price}}</h1>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
