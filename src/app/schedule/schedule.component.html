@@ -1,262 +1,271 @@
 <nav>
   <mat-toolbar color="primary">
-    <nav class="menu">
-      <ul class="clearfix">
-        <li><a>Residential Services</a>
-          <ul class="submenu">
-            <li><a>Kitchen</a>
-              <ul class="sub-submenu">
-                <li><a (click)="schedule(1, 'Kitchen', 'Fridge')">Fridge</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Freezer')">Freezer</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Oven')">Oven</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Microwave')">Microwave</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Toaster')">Toaster</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Mixer')">Mixer</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Juicer')">Juicer</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Food Processor')">Food Processor</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
-                <li><a (click)="schedule(1, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
+      <nav class="menu">
+          <ul class="clearfix">
+            <li><a>Residential Services</a>
+              <ul class="submenu">
+                <li><a>Kitchen</a>
+                  <ul class="sub-submenu">
+                    <li><a (click)="schedule(1, 'Kitchen', 'Fridge')">Fridge</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Freezer')">Freezer</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Oven')">Oven</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Microwave')">Microwave</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Toaster')">Toaster</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Mixer')">Mixer</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Juicer')">Juicer</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Food Processor')">Food Processor</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
+                    <li><a (click)="schedule(1, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
+                  </ul>
+                </li>
+                <li><a>Laundry</a>
+                  <ul class="sub-submenu">
+                    <li><a (click)="schedule(1, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
+                    <li><a (click)="schedule(1, 'Laundry', 'Dryer')">Dryer</a></li>
+                    <li><a (click)="schedule(1, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
+                    <li><a (click)="schedule(1, 'Laundry', 'Vents')">Vents</a></li>
+                    <li><a (click)="schedule(1, 'Laundry', 'Caunders')">Caunders</a></li>
+                    <li><a (click)="schedule(1, 'Laundry', 'Others')">Others</a></li>
+                  </ul>
+                </li> 
+                <li><a (click)="schedule(1, 'Appliances', 'Appliances')">Appliances</a></li>
+                <li><a>Refrigeration and Air Conditioning</a>
+                  <ul class="sub-submenu">
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</a></li>
+                    <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</a></li>
+                  </ul>
+                </li>
+                <li><a (click)="schedule(1, 'Power Generators', 'Power Generators')">Power Generators</a></li>
+                <li><a (click)="schedule(1, 'Security Systems', 'Security Systems')">Security Systems</a></li>
+                <li><a (click)="schedule(1, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
               </ul>
             </li>
-            <li><a>Laundry</a>
-              <ul class="sub-submenu">
-                <li><a (click)="schedule(1, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
-                <li><a (click)="schedule(1, 'Laundry', 'Dryer')">Dryer</a></li>
-                <li><a (click)="schedule(1, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
-                <li><a (click)="schedule(1, 'Laundry', 'Vents')">Vents</a></li>
-                <li><a (click)="schedule(1, 'Laundry', 'Caunders')">Caunders</a></li>
-                <li><a (click)="schedule(1, 'Laundry', 'Others')">Others</a></li>
+            <li><a>Hotel & Institutions</a>
+              <ul class="submenu">
+                  <li><a>Kitchen</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(2, 'Kitchen', 'Fridge')">Fridge</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Freezer')">Freezer</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Oven')">Oven</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Microwave')">Microwave</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Toaster')">Toaster</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Mixer')">Mixer</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Juicer')">Juicer</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Food Processor')">Food Processor</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
+                      <li><a (click)="schedule(2, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
+                    </ul>
+                  </li>
+                  <li><a>Laundry</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(2, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
+                      <li><a (click)="schedule(2, 'Laundry', 'Dryer')">Dryer</a></li>
+                      <li><a (click)="schedule(2, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
+                      <li><a (click)="schedule(2, 'Laundry', 'Vents')">Vents</a></li>
+                      <li><a (click)="schedule(2, 'Laundry', 'Caunders')">Caunders</a></li>
+                      <li><a (click)="schedule(2, 'Laundry', 'Others')">Others</a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="schedule(2, 'Appliances', 'Appliances')">Appliances</a></li>
+                  <li><a>Refrigeration and Air Conditioning</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</a></li>
+                      <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="schedule(2, 'Laboratory Equipment', 'Laboratory Equipment')">Laboratory Equipment</a></li>
+                  <li><a (click)="schedule(2, 'Power Generators', 'Power Generators')">Power Generators</a></li>
+                  <li><a (click)="schedule(2, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
+                  <li><a (click)="schedule(2, 'Security Systems', 'Security Systems')">Security Systems</a></li>
+                  <li><a (click)="schedule(2, 'Steam Boilers', 'Steam Boilers')">Steam Boilers</a></li>
               </ul>
             </li>
-            <li><a (click)="schedule(1, 'Appliances', 'Appliances')">Appliances</a></li>
-            <li><a>Refrigeration and Air Conditioning</a>
-              <ul class="sub-submenu">
-                <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
-                <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
-                <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
-                <li><a (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
+            <li><a>Commercial Services</a>
+              <ul class="submenu">
+                  <li><a>Kitchen</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(3, 'Kitchen', 'Fridge')">Fridge</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Freezer')">Freezer</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Oven')">Oven</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Microwave')">Microwave</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Toaster')">Toaster</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Mixer')">Mixer</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Juicer')">Juicer</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Food Processor')">Food Processor</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
+                      <li><a (click)="schedule(3, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
+                    </ul>
+                  </li>
+                  <li><a>Laundry</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(3, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
+                      <li><a (click)="schedule(3, 'Laundry', 'Dryer')">Dryer</a></li>
+                      <li><a (click)="schedule(3, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
+                      <li><a (click)="schedule(3, 'Laundry', 'Vents')">Vents</a></li>
+                      <li><a (click)="schedule(3, 'Laundry', 'Caunders')">Caunders</a></li>
+                      <li><a (click)="schedule(3, 'Laundry', 'Others')">Others</a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="schedule(3, 'Appliances', 'Appliances')">Appliances</a></li>
+                  <li><a>Refrigeration and Air Conditioning</a>
+                    <ul class="sub-submenu">
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</a></li>
+                      <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="schedule(3, 'Power Generators', 'Power Generators')">Power Generators</a></li>
+                  <li><a (click)="schedule(3, 'Security Systems', 'Security Systems')">Security Systems</a></li>
+                  <li><a (click)="schedule(3, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
+                  <li><a (click)="schedule(3, 'Steam Boilers', 'Steam Boilers')">Steam Boilers</a></li>
               </ul>
             </li>
-            <li><a (click)="schedule(1, 'Power Generators', 'Power Generators')">Power Generators</a></li>
-            <li><a (click)="schedule(1, 'Security Systems', 'Security Systems')">Security Systems</a></li>
-            <li><a (click)="schedule(1, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
-          </ul>
-        </li>
-        <li><a>Hotel & Institutions</a>
-          <ul class="submenu">
-              <li><a>Kitchen</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(2, 'Kitchen', 'Fridge')">Fridge</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Freezer')">Freezer</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Oven')">Oven</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Microwave')">Microwave</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Toaster')">Toaster</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Mixer')">Mixer</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Juicer')">Juicer</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Food Processor')">Food Processor</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
-                  <li><a (click)="schedule(2, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
-                </ul>
-              </li>
-              <li><a>Laundry</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(2, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
-                  <li><a (click)="schedule(2, 'Laundry', 'Dryer')">Dryer</a></li>
-                  <li><a (click)="schedule(2, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
-                  <li><a (click)="schedule(2, 'Laundry', 'Vents')">Vents</a></li>
-                  <li><a (click)="schedule(2, 'Laundry', 'Caunders')">Caunders</a></li>
-                  <li><a (click)="schedule(2, 'Laundry', 'Others')">Others</a></li>
-                </ul>
-              </li>
-              <li><a (click)="schedule(2, 'Appliances', 'Appliances')">Appliances</a></li>
-              <li><a>Refrigeration and Air Conditioning</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
-                  <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
-                  <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
-                  <li><a (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
-                </ul>
-              </li>
-              <li><a (click)="schedule(2, 'Laboratory Equipment', 'Laboratory Equipment')">Laboratory Equipment</a></li>
-              <li><a (click)="schedule(2, 'Power Generators', 'Power Generators')">Power Generators</a></li>
-              <li><a (click)="schedule(2, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
-              <li><a (click)="schedule(2, 'Security Systems', 'Security Systems')">Security Systems</a></li>
-              <li><a (click)="schedule(2, 'Steam Boilers', 'Steam Boilers')">Steam Boilers</a></li>
-          </ul>
-        </li>
-        <li><a>Commercial Services</a>
-          <ul class="submenu">
-              <li><a>Kitchen</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(3, 'Kitchen', 'Fridge')">Fridge</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Freezer')">Freezer</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Oven')">Oven</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Microwave')">Microwave</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Toaster')">Toaster</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Mixer')">Mixer</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Juicer')">Juicer</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Food Processor')">Food Processor</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Electric Kettle')">Electric Kettle</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Grill Electric')">Grill Electric</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Dishwasher')">Dishwasher</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Water Dispenser')">Water Dispenser</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Coffee Machine')">Coffee Machine</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Weighing Scale')">Weighing Scale</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Chicken Grill')">Chicken Grill</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</a></li>
-                  <li><a (click)="schedule(3, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</a></li>
-                </ul>
-              </li>
-              <li><a>Laundry</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(3, 'Laundry', 'Waching Machines')">Waching Machines</a></li>
-                  <li><a (click)="schedule(3, 'Laundry', 'Dryer')">Dryer</a></li>
-                  <li><a (click)="schedule(3, 'Laundry', 'Iron Steam')">Iron Steam</a></li>
-                  <li><a (click)="schedule(3, 'Laundry', 'Vents')">Vents</a></li>
-                  <li><a (click)="schedule(3, 'Laundry', 'Caunders')">Caunders</a></li>
-                  <li><a (click)="schedule(3, 'Laundry', 'Others')">Others</a></li>
-                </ul>
-              </li>
-              <li><a (click)="schedule(3, 'Appliances', 'Appliances')">Appliances</a></li>
-              <li><a>Refrigeration and Air Conditioning</a>
-                <ul class="sub-submenu">
-                  <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</a></li>
-                  <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</a></li>
-                  <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</a></li>
-                  <li><a (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Ice Maker')">Ice Maker</a></li>
-                </ul>
-              </li>
-              <li><a (click)="schedule(3, 'Power Generators', 'Power Generators')">Power Generators</a></li>
-              <li><a (click)="schedule(3, 'Security Systems', 'Security Systems')">Security Systems</a></li>
-              <li><a (click)="schedule(3, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</a></li>
-              <li><a (click)="schedule(3, 'Steam Boilers', 'Steam Boilers')">Steam Boilers</a></li>
-          </ul>
-        </li>
-        <li><a>Building Repairs</a>
-          <ul class="submenu">
-            <li><a (click)="schedule(4, 'Electrical Works', 'Electrical Works')">Electrical Works</a></li>
-            <li><a (click)="schedule(4, 'Water System and Drainage', 'Water System and Drainage')">Water System and Drainage</a></li>
-            <li><a (click)="schedule(4, 'Interior works', 'Interior works')">Interior works</a></li>
-            <li><a>Civil Works</a>
-              <ul class="sub-submenu">
-                <li><a (click)="schedule(4, 'Civil Works', 'Pavements')">Pavements</a></li>
-                <li><a (click)="schedule(4, 'Civil Works', 'Partitioning')">Partitioning</a></li>
-                <li><a (click)="schedule(4, 'Civil Works', 'Roofing')">Roofing</a></li>
-                <li><a (click)="schedule(4, 'Civil Works', 'Fencing')">Fencing</a></li>
-                <li><a (click)="schedule(4, 'Civil Works', 'Landscaping')">Landscaping</a></li>
+            <li><a>Building Repairs</a>
+              <ul class="submenu">
+                <li><a (click)="schedule(4, 'Electrical Works', 'Electrical Works')">Electrical Works</a></li>
+                <li><a (click)="schedule(4, 'Water System and Drainage', 'Water System and Drainage')">Water System and Drainage</a></li>
+                <li><a (click)="schedule(4, 'Interior works', 'Interior works')">Interior works</a></li>
+                <li><a>Civil Works</a>
+                  <ul class="sub-submenu">
+                    <li><a (click)="schedule(4, 'Civil Works', 'Pavements')">Pavements</a></li>
+                    <li><a (click)="schedule(4, 'Civil Works', 'Partitioning')">Partitioning</a></li>
+                    <li><a (click)="schedule(4, 'Civil Works', 'Roofing')">Roofing</a></li>
+                    <li><a (click)="schedule(4, 'Civil Works', 'Fencing')">Fencing</a></li>
+                    <li><a (click)="schedule(4, 'Civil Works', 'Landscaping')">Landscaping</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a>Entertainment Equipment</a>
+              <ul class="submenu">
+                <li><a (click)="schedule(5, 'Audi Visual Equipment', 'Audi Visual Equipment')">Audi Visual Equipment</a></li>
+                <li><a (click)="schedule(5, 'Betting Machines', 'Betting Machines')">Betting Machines</a></li>
+                <li><a (click)="schedule(5, 'Kids Fun Machines', 'Kids Fun Machines')">Kids Fun Machines</a></li>
+                <li><a (click)="schedule(5, 'Bouncing Castle', 'Bouncing Castle')">Bouncing Castle</a></li>
+                <li><a (click)="schedule(5, 'Kids Trains', 'Kids Trains')">Kids Trains</a></li>
+                <li><a (click)="schedule(5, 'Roll Caster & Speed Boats','Roll Caster & Speed Boats')">Roll Caster & Speed Boats</a></li>
+                <li><a (click)="schedule(5, 'Kids Swings','Kids Swings')">Kids Swings</a></li>
+                <li><a (click)="schedule(5, 'Power Generators','Power Generators')">Power Generators</a></li>
+                <li><a (click)="schedule(5, 'Security Systems','Security Systems')">Security Systems</a></li>
+              </ul>
+            </li>
+            <li><a>Green Energy Solutions</a>
+              <ul class="submenu">
+                <li><a (click)="schedule(6, 'Maintenance', 'Maintenance')">Maintenance</a></li>
+                <li><a>Installation</a>
+                  <ul class="sub-submenu">
+                    <li><a (click)="schedule(6, 'Installation', 'Solar System')">Solar System</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Street Solar Lights')">Street Solar Lights</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Solar Water Heating System')">Solar Water Heating System</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Solar power')">Solar power</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Solar pumps')">Solar pumps</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Solar designed structures')">Solar designed structures</a></li>
+                    <li><a (click)="schedule(6, 'Installation', 'Solar saving consultations')">Solar saving consultations</a></li>
+                  </ul>
+                </li>
+                <li><a (click)="schedule(6, 'Energy Audit', 'Energy Audit')">Energy Audit</a></li>
+                <li><a (click)="schedule(6, 'Energy Saving Consultant', 'Energy Saving Consultant')">Energy Saving Consultant</a></li>
               </ul>
             </li>
           </ul>
-        </li>
-        <li><a>Entertainment Equipment</a>
-          <ul class="submenu">
-            <li><a (click)="schedule(5, 'Audi Visual Equipment', 'Audi Visual Equipment')">Audi Visual Equipment</a></li>
-            <li><a (click)="schedule(5, 'Betting Machines', 'Betting Machines')">Betting Machines</a></li>
-            <li><a (click)="schedule(5, 'Kids Fun Machines', 'Kids Fun Machines')">Kids Fun Machines</a></li>
-            <li><a (click)="schedule(5, 'Bouncing Castle', 'Bouncing Castle')">Bouncing Castle</a></li>
-            <li><a (click)="schedule(5, 'Kids Trains', 'Kids Trains')">Kids Trains</a></li>
-            <li><a (click)="schedule(5, 'Roll Caster & Speed Boats','Roll Caster & Speed Boats')">Roll Caster & Speed Boats</a></li>
-            <li><a (click)="schedule(5, 'Kids Swings','Kids Swings')">Kids Swings</a></li>
-            <li><a (click)="schedule(5, 'Power Generators','Power Generators')">Power Generators</a></li>
-            <li><a (click)="schedule(5, 'Security Systems','Security Systems')">Security Systems</a></li>
-          </ul>
-        </li>
-        <li><a>Green Energy Solutions</a>
-          <ul class="submenu">
-            <li><a (click)="schedule(6, 'Maintenance', 'Maintenance')">Maintenance</a></li>
-            <li><a>Installation</a>
-              <ul class="sub-submenu">
-                <li><a (click)="schedule(6, 'Installation', 'Solar System')">Solar System</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Street Solar Lights')">Street Solar Lights</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Solar Water Heating System')">Solar Water Heating System</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Solar power')">Solar power</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Solar pumps')">Solar pumps</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Solar designed structures')">Solar designed structures</a></li>
-                <li><a (click)="schedule(6, 'Installation', 'Solar saving consultations')">Solar saving consultations</a></li>
-              </ul>
-            </li>
-            <li><a (click)="schedule(6, 'Energy Audit', 'Energy Audit')">Energy Audit</a></li>
-            <li><a (click)="schedule(6, 'Energy Saving Consultant', 'Energy Saving Consultant')">Energy Saving Consultant</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+        </nav>
   </mat-toolbar>
 </nav>
 
 <div class="jumbotron">
-  <div class="flexbox">
-    <div class="leftPanel">
-      <h1 style="font-family: 'Segoe UI Light';">{{category}}</h1>
+  <div class="row">
+    <div class="col-sm-6 text-center">
 
-      <p class="lead"> Thank you for choosing us to do the <strong>{{subsub}}</strong> work for you.</p>
-      <p class="lead"> Please book an appointment for our experts to come to you at your own convinient time to make you a quotation and view the job.</p>
+        <h1 style="font-size: 40px;font-family: 'Segoe UI Light'; font-weight: 900;">{{category}}</h1>
+
+        <p class="lead"> Thank you for choosing us to do the <strong>{{subsub}}</strong> work for you.</p>
+        <p class="lead"> Please book an appointment for our experts to come to you at your own convinient time to make you a quotation and view the job.</p>
+
     </div>
-
-    <div class="rightPanel">
-      <div class="card">
-        <div class="card-body">
-
-          Schedule a time that is convinient for you
-
-          <br>
-
-          <form [formGroup]="rForm" (ngSubmit)="scheduleAppointment(rForm.value)">
-            <div class="input-group">
-              <span class="input-group-addon" id="from">From:</span>
-              <input type="datetime-local" name="from" id="from" class="form-control" formControlName="from">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+    
+              Schedule a time that is convinient for you
+    
+              <br>
+    
+              <form [formGroup]="rForm" (ngSubmit)="scheduleAppointment(rForm.value)">
+                <input type="datetime-local" name="from" id="from" class="form-control" formControlName="from">
+                <div class="alertbox" *ngIf="!rForm.controls['from'].valid && rForm.controls['from'].touched"> This is required</div>
+                <br>
+                <input type="datetime-local" class="form-control" name="to" id="to" formControlName="to">
+                <div class="alertbox" *ngIf="!rForm.controls['to'].valid && rForm.controls['to'].touched"> This is required</div>
+                <br>
+                <mat-form-field>
+                  <mat-select placeholder="County" formControlName="select">
+                    <mat-option *ngFor="let county of counties" [value]="county">
+                      {{county}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br>
+                <div class="alertbox" *ngIf="!rForm.controls['select'].valid && rForm.controls['select'].touched">Choose a county</div>
+                <br>
+                <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Full Names" formControlName="fullname">
+                <div class="alertbox" *ngIf="!rForm.controls['fullname'].valid && rForm.controls['fullname'].touched">Give us a name...</div>
+                <br>
+                <input type="text" name="town" id="town" class="form-control" placeholder="Town" formControlName="town">
+                <div class="alertbox" *ngIf="!rForm.controls['town'].valid && rForm.controls['town'].touched">Even a close town is enough</div>
+                <br>
+                <input type="text" name="street" id="street" class="form-control" formControlName="street" placeholder="Street Address">
+                <div class="alertbox" *ngIf="!rForm.controls['street'].valid && rForm.controls['street'].touched">Make it easier to find you...</div>
+                <br>
+                <input type="number" name="phone" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
+                <div class="alertbox" *ngIf="!rForm.controls['phone'].valid && rForm.controls['phone'].touched">We'd like to call on arrival</div>
+                <br>
+                <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+                <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">You'll need to recieve important notifications</div>
+                <br>
+                <textarea name="desc" class="md-textarea" formControlName="description" id="desc" cols="10" length="150" rows="5" placeholder="(Optional) A short description of the issue."></textarea>
+                <br>
+                <div class="form-group">
+                    <input formControlName="warrant" type="checkbox" id="warrant">
+                    <label for="warrant">Appliance is covered by manufacturer/contract warranty</label>
+                </div>
+                <br>
+                <input class="btn btn-success" color="primary" type="submit" value="Schedule Appointment" [disabled]="!rForm.valid" />
+                
+              </form>
             </div>
-            <div class="alertbox" *ngIf="!rForm.controls['from'].valid && rForm.controls['from'].touched"> This is required</div>
-            <br>
-            <div class="input-group">
-              <span class="input-group-addon" id="to">To:</span>
-              <input type="datetime-local" class="form-control" name="to" id="to" formControlName="to">
-            </div>
-            <div class="alertbox" *ngIf="!rForm.controls['to'].valid && rForm.controls['to'].touched"> This is required</div>
-            <br>
-            <span class="label label-default">County</span>
-            <mat-select [placeholder]="County" formControlName="select">
-              <mat-option *ngFor="let county of counties" [value]="county">
-                {{county}}
-              </mat-option>
-            </mat-select>
-            <div class="alertbox" *ngIf="!rForm.controls['select'].valid && rForm.controls['select'].touched">Choose a county</div>
-            <br>
-            <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Full Names" formControlName="fullname">
-            <div class="alertbox" *ngIf="!rForm.controls['fullname'].valid && rForm.controls['fullname'].touched">Give us a name...</div>
-            <br>
-            <input type="text" name="town" id="town" class="form-control" placeholder="Town" formControlName="town">
-            <div class="alertbox" *ngIf="!rForm.controls['town'].valid && rForm.controls['town'].touched">Even a close town is enough</div>
-            <br>
-            <input type="text" name="street" id="street" class="form-control" formControlName="street" placeholder="Street Address">
-            <div class="alertbox" *ngIf="!rForm.controls['street'].valid && rForm.controls['street'].touched">Make it easier to find you...</div>
-            <br>
-            <input type="number" name="phone" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
-            <div class="alertbox" *ngIf="!rForm.controls['phone'].valid && rForm.controls['phone'].touched">We'd like to call on arrival</div>
-            <br>
-            <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-            <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">You'll need to recieve important notifications</div>
-            <br>
-            <input class="btn btn-success" color="primary" type="submit" value="Schedule Appointment" [disabled]="!rForm.valid" />
-            
-          </form>
-
         </div>
-      </div>
     </div>
-  </div>
+  </div> 
 </div>

@@ -5,6 +5,7 @@
 body {
     padding: 0px;
     margin: 0px;
+    font-family: "Segoe UI Light";
 }
 
 .jumbotron {
@@ -59,6 +60,7 @@ body {
  
 .menu > ul > li > a {
     padding:10px 10px;
+    font-size: 16px;
     border-bottom: 3px solid transparent;
 }
  
@@ -82,7 +84,7 @@ body {
     display: none;
     z-index:-1;
     opacity:0;
-    transition:opacity linear 0.15s;
+    transition: opacity linear .15s;
     box-shadow:0px 2px 3px rgba(0,0,0,0.2);
     background:#0e005f;
     margin-top: 5px;
@@ -97,7 +99,7 @@ body {
     left: 100%;
     position: absolute;
     top: -5px;
-    transition:opacity linear 0.15s;
+    transition: opacity linear 0.15s;
     box-shadow:0px 2px 3px rgba(0,0,0,0.2);
     background:#0e005f;
     margin-top: 5px;

@@ -1,6 +1,57 @@
 <mat-toolbar color="primary">
   {{username}}
   <span class="space"></span>
-  <button mat-button>{{email}}</button>
-  <button mat-button>Phone</button>
+  <a href="mailto:{{email}}" mat-raised-button color="accent">Mail {{username}}</a>
 </mat-toolbar>
+
+<div class="row">
+  <div class="col-sm-2">
+    <mat-card>
+      <p class="text-center"><strong>Staff ID:</strong> {{staff_id}}</p>
+    </mat-card>
+  </div>
+
+  <div class="col-sm-4">
+    <mat-card>
+      <p class="text-center"><strong>Job Title:</strong> {{title}}</p>
+    </mat-card>
+  </div>
+
+  <div class="col-sm-6">
+    <mat-card>
+      <p class="text-center"><strong>Last seen:</strong><time>{{last_login}}</time></p>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <mat-list>
+      <h2 mat-subheader>Info</h2>
+      <mat-list-item>
+        <mat-icon mat-list-icon>call</mat-icon>
+        <h4 mat-line>Phone</h4>
+        <p mat-line>0{{phone}}</p>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+        <h4 mat-line>Joined Graphine EA</h4>
+        <p mat-line>{{account_created}}</p>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <h2 mat-subheader>Permissions</h2>
+
+      <mat-selection-list #permissions>
+        <mat-list-option >Add Technician</mat-list-option>
+      </mat-selection-list>
+    </mat-list>
+
+  </div>
+  <div class="col-sm-8">
+    <h3>Monitor {{username}}'s activities.</h3>
+  </div>
+</div>

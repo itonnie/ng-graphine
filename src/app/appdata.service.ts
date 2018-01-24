@@ -13,6 +13,7 @@ export class AppdataService {
   currentId = this.idSource.asObservable();
   currentStaffId = this.staffIdSource.asObservable();
   currentLevel = this.stafflevel.asObservable();
+  host: String = "http://localhost:3000";
 
   constructor(public http: Http) { }
 
@@ -21,7 +22,7 @@ export class AppdataService {
   }
 
   makeAppointment(from, to, county, fullname, town, street, phone, category, sub, subsub) {
-    return this.http.post('http://localhost:3000/addschedule', {
+    return this.http.post('/addschedule', {
       from: from,
       to: to,
       county: county,
@@ -36,7 +37,7 @@ export class AppdataService {
   }
 
   login(type: String, email: String, password: String) {
-    return this.http.post("http://localhost:3000/auth/login", {
+    return this.http.post("/auth/login", {
       type: type,
       email: email,
       password: password
@@ -44,11 +45,11 @@ export class AppdataService {
   }
 
   getOrders(type) {
-    return this.http.get("http://localhost:3000/admin/schedules/"+type).map(res => res.json());
+    return this.http.get("/admin/schedules/"+type).map(res => res.json());
   }
 
   viewOrder(id) {
-    return this.http.post("http://localhost:3000/admin/order", {
+    return this.http.post("/admin/order", {
       id: id
     }).map(res => res.json());
   }
@@ -63,24 +64,24 @@ export class AppdataService {
   }
 
   quoteOrder(id: String, quotation: Number) {
-    return this.http.post("http://localhost:3000/admin/quote", {
+    return this.http.post("/admin/quote", {
       id: id,
       quotation: quotation
     }).map(res => res.json());
   }
 
   approveOrder(id: String) {
-    return this.http.post("http://localhost:3000/admin/approve", {
+    return this.http.post("/admin/approve", {
       id: id
     }).map(res => res.json());
   }
 
   completeOrder(id: String) {
-    return this.http.get("http://localhost:3000/admin/paid/"+id).map(res => res.json());
+    return this.http.get("/admin/paid/"+id).map(res => res.json());
   }
 
   addTechnician(username, email, phone, staffid, title) {
-    return this.http.post("http://localhost:3000/admin/addtechnician", {
+    return this.http.post("/admin/addtechnician", {
       username: username,
       phone: phone,
       email: email,
@@ -90,7 +91,7 @@ export class AppdataService {
   }
 
   addManager(username, email, phone, staffid) {
-    return this.http.post("http://localhost:3000/admin/addmanager", {
+    return this.http.post("/admin/addmanager", {
       username: username,
       phone: phone,
       email: email,
@@ -99,18 +100,18 @@ export class AppdataService {
   }
 
   getTechnicians() {
-    return this.http.get("http://localhost:3000/users/technicians").map(res => res.json());
+    return this.http.get("/users/technicians").map(res => res.json());
   }
 
   getManagers() {
-    return this.http.get("http://localhost:3000/users/managers").map(res => res.json());
+    return this.http.get("/users/managers").map(res => res.json());
   }
 
   viewStaff(id, level) {
     if(level == "technician") {
-      return this.http.get("http://localhost:3000/users/technician/"+id).map(res => res.json());
+      return this.http.get("/users/technician/"+id).map(res => res.json());
     } else if(level == "manager") {
-      return this.http.get("http://localhost:3000/users/manager/"+id).map(res => res.json());
+      return this.http.get("/users/manager/"+id).map(res => res.json());
     }
   }
 

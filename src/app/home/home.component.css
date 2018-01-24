@@ -100,6 +100,43 @@
     animation-duration: 1.5s;
 }
 
+.col-sm-4 p {
+    font-weight: 700;
+}
+
+.col-sm-4 img {
+    margin: 20px;
+    transition: all .4s cubic-bezier(0.61, -0.29, 0.41, 1.2);
+}
+
+.col-sm-4 img:hover {
+    transform: scale(1.1);
+}
+
+.col-sm-4 h3 {
+    color: rgb(44, 94, 231);
+    font-weight: 900;
+}
+
+.col-sm-4 h3:hover {
+    color: rgb(245, 75, 75);
+}
+
+.s50 {
+    margin: 10px auto;
+    width: 50%;
+    background: rgb(44, 94, 231);
+    height: 2px;
+}
+
+#grlogo {
+    transition: all .4s cubic-bezier(0.61, -0.29, 0.41, 1.2);
+}
+
+#grlogo:hover {
+    transform: scale(1.1);
+}
+
 @keyframes fade {
     from { opacity: 4 }
     to { opacity: 1}

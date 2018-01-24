@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
         category = "Residential Repair and Maintenance";
         break;
       case 2:
-        category = "Hotels and Medical Institutions Repair and Maintenance";
+        category = "Hotels and Institutions Repair and Maintenance";
         break;
       case 3:
         category = "Commercial Repair and Maintenance";

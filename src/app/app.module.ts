@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpModule } from "@angular/http";
@@ -50,6 +51,7 @@ import { StaffdetailsComponent } from './staffdetails/staffdetails.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    MDBBootstrapModule.forRoot(),
 
     MatToolbarModule,
     MatButtonModule,
@@ -63,6 +65,7 @@ import { StaffdetailsComponent } from './staffdetails/staffdetails.component';
     MatExpansionModule,
     MatInputModule
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ AppdataService, SocketsService],
   bootstrap: [AppComponent]
 })

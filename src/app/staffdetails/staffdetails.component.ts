@@ -18,6 +18,7 @@ export class StaffdetailsComponent implements OnInit {
   email: String;
   account_created: Date;
   permissions: any;
+  setpermissions: any[];
 
   constructor(private appdata: AppdataService, private router: Router) {
     this.appdata.currentStaffId.subscribe(id => {
@@ -31,13 +32,18 @@ export class StaffdetailsComponent implements OnInit {
     } else {
       this.appdata.currentLevel.subscribe(level => {
         this.appdata.viewStaff(this.id, level).subscribe(userData => {
+
+          var ll = new Date(userData.data.last_login);
+          var ac = new Date(userData.data.account_created);
+          console.log(userData);
+
           this.username = userData.data.username;
           this.title = userData.data.title;
           this.staff_id = userData.data.staff_id;
           this.phone = userData.data.phone;
-          this.last_login = userData.data.last_login;
+          this.last_login = ll;
           this.email = userData.data.email;
-          this.account_created = userData.data.account_created;
+          this.account_created = ac;
           this.permissions = userData.data.permissions;
         });
       });

@@ -53,6 +53,8 @@ export class ScheduleComponent implements OnInit {
       'select': [null, Validators.required],
       'email': [null, Validators.compose([ Validators.email ])],
       'newsletter': '',
+      'description': [null],
+      'warrant': [null],
       'phone': [null, Validators.compose([ Validators.required, Validators.minLength(10), Validators.maxLength(11)])]
     })
   }
