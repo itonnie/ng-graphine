@@ -13,7 +13,7 @@ export class AppdataService {
   currentId = this.idSource.asObservable();
   currentStaffId = this.staffIdSource.asObservable();
   currentLevel = this.stafflevel.asObservable();
-  host: String = "http://localhost:3000";
+  host: String = "";
 
   constructor(public http: Http) { }
 
@@ -21,8 +21,8 @@ export class AppdataService {
     return this.http.get('assets/json/counties.json').map(res => res.json());
   }
 
-  makeAppointment(from, to, county, fullname, town, street, phone, category, sub, subsub) {
-    return this.http.post('/addschedule', {
+  makeAppointment(from, to, county, fullname, town, street, phone, category, sub, subsub, desc, email, warranty) {
+    return this.http.post(this.host+'/addschedule', {
       from: from,
       to: to,
       county: county,
@@ -32,12 +32,15 @@ export class AppdataService {
       street: street,
       phone: phone,
       sub: sub,
-      subsub: subsub
+      subsub: subsub,
+      desc: desc,
+      email: email,
+      warranty: warranty
     }).map(res => res.json());
   }
 
   login(type: String, email: String, password: String) {
-    return this.http.post("/auth/login", {
+    return this.http.post(this.host+"/auth/login", {
       type: type,
       email: email,
       password: password
@@ -45,11 +48,11 @@ export class AppdataService {
   }
 
   getOrders(type) {
-    return this.http.get("/admin/schedules/"+type).map(res => res.json());
+    return this.http.get(this.host+"/admin/schedules/"+type).map(res => res.json());
   }
 
   viewOrder(id) {
-    return this.http.post("/admin/order", {
+    return this.http.post(this.host+"/admin/order", {
       id: id
     }).map(res => res.json());
   }
@@ -64,24 +67,24 @@ export class AppdataService {
   }
 
   quoteOrder(id: String, quotation: Number) {
-    return this.http.post("/admin/quote", {
+    return this.http.post(this.host+"/admin/quote", {
       id: id,
       quotation: quotation
     }).map(res => res.json());
   }
 
   approveOrder(id: String) {
-    return this.http.post("/admin/approve", {
+    return this.http.post(this.host+"/admin/approve", {
       id: id
     }).map(res => res.json());
   }
 
   completeOrder(id: String) {
-    return this.http.get("/admin/paid/"+id).map(res => res.json());
+    return this.http.get(this.host+"/admin/paid/"+id).map(res => res.json());
   }
 
   addTechnician(username, email, phone, staffid, title) {
-    return this.http.post("/admin/addtechnician", {
+    return this.http.post(this.host+"/admin/addtechnician", {
       username: username,
       phone: phone,
       email: email,
@@ -91,7 +94,7 @@ export class AppdataService {
   }
 
   addManager(username, email, phone, staffid) {
-    return this.http.post("/admin/addmanager", {
+    return this.http.post(this.host+"/admin/addmanager", {
       username: username,
       phone: phone,
       email: email,
@@ -100,19 +103,39 @@ export class AppdataService {
   }
 
   getTechnicians() {
-    return this.http.get("/users/technicians").map(res => res.json());
+    return this.http.get(this.host+"/users/technicians").map(res => res.json());
   }
 
   getManagers() {
-    return this.http.get("/users/managers").map(res => res.json());
+    return this.http.get(this.host+"/users/managers").map(res => res.json());
   }
 
   viewStaff(id, level) {
     if(level == "technician") {
-      return this.http.get("/users/technician/"+id).map(res => res.json());
+      return this.http.get(this.host+"/users/technician/"+id).map(res => res.json());
     } else if(level == "manager") {
-      return this.http.get("/users/manager/"+id).map(res => res.json());
+      return this.http.get(this.host+"/users/manager/"+id).map(res => res.json());
     }
+  }
+
+  saveUserInfo(acrcy, altde, altdeAcc, hdn, lat, lon, sp) {
+    return this.http.post(this.host+"/updateinfo", {
+      accuracy: acrcy,
+      altitude: altde,
+      altitudeAccuracy: altdeAcc,
+      heading: hdn,
+      latitude: lat,
+      longitude: lon,
+      speed: sp
+    }).map(res => res.json());
+  }
+
+  feedback(name, email, message) {
+    return this.http.post(this.host+"/feedback", {
+      name: name,
+      email: email,
+      message: message
+    }).map(res => res.json());
   }
 
 }

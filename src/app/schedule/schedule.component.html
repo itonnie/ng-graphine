@@ -254,10 +254,12 @@
                 <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Email">
                 <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">You'll need to recieve important notifications</div>
                 <br>
-                <textarea name="desc" class="md-textarea" formControlName="description" id="desc" cols="10" length="150" rows="5" placeholder="(Optional) A short description of the issue."></textarea>
+                <div class="md-form">
+                    <textarea name="desc" class="md-textarea" formControlName="description" id="desc" placeholder="(Optional) A short description of the issue." length="15"></textarea>
+                </div>
                 <br>
                 <div class="form-group">
-                    <input formControlName="warrant" type="checkbox" id="warrant">
+                    <input formControlName="warrant" type="checkbox" value="true" id="warrant">
                     <label for="warrant">Appliance is covered by manufacturer/contract warranty</label>
                 </div>
                 <br>

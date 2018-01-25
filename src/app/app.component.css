@@ -8,10 +8,14 @@
 }
 */
 
+mat-toolbar {
+    background: #333;
+}
+
 .header h1 {
     cursor: pointer;
-    color: #0400eb;
-    font-size: xx-large;
+    color: white;
+    font-size: x-large;
 }
 
 .jumbotron {

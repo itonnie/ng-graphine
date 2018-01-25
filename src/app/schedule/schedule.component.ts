@@ -78,11 +78,13 @@ export class ScheduleComponent implements OnInit {
   }
 
   scheduleAppointment(form) {
-    this.appdata.makeAppointment(form.from, form.to, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.sub, this.subsub).subscribe(data => {
+    
+    this.appdata.makeAppointment(form.from, form.to, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.sub, this.subsub, form.description, form.email, form.warranty).subscribe(data => {
       if(data.ok == true) {
         this.snackbar.open("Order id " + data.id.toString().toUpperCase() + " has been recieved", "dismiss", {
           duration: 3000
         });
+        this.router.navigate(['/']);
       }
     });
   }

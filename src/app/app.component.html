@@ -5,14 +5,14 @@
       <span class="space"></span>
     
       <button mat-icon-button [matMenuTriggerFor]="mainmenu">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon style="color: white;">more_vert</mat-icon>
       </button>
     
       <mat-menu #mainmenu>
         <button mat-menu-item [routerLink]="['/about']">About Graphine</button>
         <a href="#" target="blank" mat-menu-item>Chat with us</a>
         <button mat-menu-item>Find Our Offices</button>
-        <button mat-menu-item>Careers</button>
+        <a mat-menu-item href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a>
        <!-- <button mat-menu-item (click)="toAdmin()">Dashboard</button> -->
       </mat-menu>
     </mat-toolbar>
@@ -82,7 +82,9 @@
               <h6 class="title font-bold"><strong>Useful links</strong></h6>
               <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
               <p><a href="#!">Subscribe to newsletter</a></p>
-              <p><a href="#!">About Us</a></p>
+              <p><a [routerLink]="['/about']">About Us</a></p>
+              <p><a href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a></p>
+              <p><a [routerLink]="['/dashhome']">Dashboard</a></p>
               <p><a href="#!">Help</a></p>
           </div>
           <!--/.Third column-->

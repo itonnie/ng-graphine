@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { SocketsService } from "./sockets.service";
+import { AppdataService } from "./appdata.service";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,13 @@ export class AppComponent {
 
   isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   dashboard: Boolean = false;
-  constructor(private router: Router, private io: SocketsService) {
+  constructor(private router: Router, private io: SocketsService, private app: AppdataService) {
     navigator.geolocation.getCurrentPosition(pos => {
-      //this.io.sendLocation(pos);
-      console.log(pos);
+      this.app.saveUserInfo(pos.coords.accuracy, pos.coords.altitude, pos.coords.altitudeAccuracy, pos.coords.heading, pos.coords.latitude, pos.coords.longitude, pos.coords.speed).subscribe(response => {
+        if(response.ok == true) {
+          console.log(response);
+        }
+      })
     });
 
     setInterval(() => {

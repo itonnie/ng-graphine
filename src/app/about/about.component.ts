@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppdataService } from "../appdata.service";
 import { MatSnackBar } from "@angular/material";
 
 @Component({
@@ -11,7 +12,7 @@ export class AboutComponent implements OnInit {
 
   talkForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private snack: MatSnackBar) {
+  constructor(private fb: FormBuilder, private snack: MatSnackBar, private app: AppdataService) {
     this.talkForm = fb.group({
       "name": [null],
       "email": [null, Validators.compose([ Validators.email ])],
@@ -29,9 +30,10 @@ export class AboutComponent implements OnInit {
       });
     }
     else {
-      console.log(value);
-      this.snack.open("Thank you for your feeback, we will get back to you shortly...", "Ok", {
-        duration: 5000
+      this.app.feedback(value.name, value.email, value.message).subscribe(response => {
+        this.snack.open(response.message, "Ok", {
+          duration: 5000  
+        });
       });
     }
   }
