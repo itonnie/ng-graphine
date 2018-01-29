@@ -72,13 +72,24 @@ export class DashhomeComponent implements OnInit {
 
   approveOrder(id) {
     this.link.approveOrder(id).subscribe(data => {
-      this.quoted = data.data;
+      this.quoted = data.quoted;
+      this.approved = data.approved;
     })
   }
 
   completeOrder(id) {
     this.link.completeOrder(id).subscribe(data => {
-      this.approved = data.data;
+      this.approved = data.approved;
+      this.completed = data.completed;
+    })
+  }
+
+  cancelOrder(id) {
+    this.link.cancelOrder(id).subscribe(data => {
+      this.pending = data.pending;
+      this.quoted = data.quoted;
+      this.approved = data.approved;
+      this.completed = data.completed;
     })
   }
 

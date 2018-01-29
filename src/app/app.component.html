@@ -1,6 +1,7 @@
-  <!-- PC Template -->
-  <div *ngIf="isMobile === false; else mobile">
+<!-- PC Template -->
+<div *ngIf="isMobile === false; else mobile">
     <mat-toolbar class="header" *ngIf="dashboard == false;">
+      <img src="./assets/images/graphine_logo.png" width="40px" height="40px" style="margin: 0 15px;" alt="Logo">
       <h1 (click)="goHome()">Graphine East Africa Limited</h1>
       <span class="space"></span>
     
@@ -20,104 +21,218 @@
     <router-outlet></router-outlet>
 
     <!--Footer-->
-<footer *ngIf="dashboard == false;" class="page-footer center-on-small-only unique-color-dark pt-0">
+    <footer *ngIf="dashboard == false;" class="page-footer center-on-small-only unique-color-dark pt-0">
 
-  <div style="background-color: #2825d6;">
-      <div class="container">
-          <!--Grid row-->
-          <div class="row py-4 d-flex align-items-center">
+    <div style="background-color: #2825d6;">
+        <div class="container">
+            <!--Grid row-->
+            <div class="row py-4 d-flex align-items-center">
 
-              <!--Grid column-->
-              <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                  <h4 class="white-text">Connect with us on our social media platforms!</h4>
-              </div>
-              <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <h4 class="white-text">Connect with us on our social media platforms!</h4>
+                </div>
+                <!--Grid column-->
 
-              <!--Grid column-->
-              <div class="col-md-6 col-lg-7 text-center text-md-right">
-                  <!--Facebook-->
-                  <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> </i></a>
-                  <!--Twitter-->
-                  <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> </i></a>
-                  <!--Linkedin-->
-                  <a class="icons-sm li-ic"><i class="fa fa-linkedin white-text mr-lg-4"> </i></a>
-                  <!--Instagram-->
-                  <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> </i></a>
-              </div>
-              <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+                    <!--Facebook-->
+                    <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> </i></a>
+                    <!--Twitter-->
+                    <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> </i></a>
+                    <!--Linkedin-->
+                    <a class="icons-sm li-ic"><i class="fa fa-linkedin white-text mr-lg-4"> </i></a>
+                    <!--Instagram-->
+                    <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> </i></a>
+                </div>
+                <!--Grid column-->
 
-          </div>
-          <!--Grid row-->
-      </div>
-  </div>
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
 
-  <!--Footer Links-->
-  <div class="container mt-5 mb-4 text-center text-md-left">
-      <div class="row mt-3">
+    <!--Footer Links-->
+    <div class="container mt-5 mb-4 text-center text-md-left">
+        <div class="row mt-3">
 
-          <!--First column-->
-          <div class="col-md-3 col-lg-4 col-xl-3 mb-r">
-              <h4 class="title font-bold"><strong>Graphine East Africa Limited</strong></h4>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p>
-                For all your Installation, Energy, Repairs and Maintenance solutions.
-                Follow us on our social media pages for free tips and interact directly with our content creators.
-              </p>
-          </div>
-          <!--/.First column-->
+            <!--First column-->
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-r">
+                <h4 class="title font-bold"><strong>Graphine East Africa Limited</strong></h4>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    For all your Installation, Energy, Repairs and Maintenance solutions.
+                    Follow us on our social media pages for free tips and interact directly with our content creators.
+                </p>
+            </div>
+            <!--/.First column-->
 
-          <!--Second column
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-r">
-              <h6 class="title font-bold"><strong>Products</strong></h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p><a href="#!">MDBootstrap</a></p>
-              <p><a href="#!">MDWordPress</a></p>
-              <p><a href="#!">BrandFlow</a></p>
-              <p><a href="#!">Bootstrap Angular</a></p>
-          </div>
-          .Second column-->
+            <!--Second column
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-r">
+                <h6 class="title font-bold"><strong>Products</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><a href="#!">MDBootstrap</a></p>
+                <p><a href="#!">MDWordPress</a></p>
+                <p><a href="#!">BrandFlow</a></p>
+                <p><a href="#!">Bootstrap Angular</a></p>
+            </div>
+            .Second column-->
 
-          <!--Third column-->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-r">
-              <h6 class="title font-bold"><strong>Useful links</strong></h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p><a href="#!">Subscribe to newsletter</a></p>
-              <p><a [routerLink]="['/about']">About Us</a></p>
-              <p><a href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a></p>
-              <p><a [routerLink]="['/dashhome']">Dashboard</a></p>
-              <p><a href="#!">Help</a></p>
-          </div>
-          <!--/.Third column-->
+            <!--Third column-->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-r">
+                <h6 class="title font-bold"><strong>Useful links</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><a href="#!">Subscribe to newsletter</a></p>
+                <p><a [routerLink]="['/about']">About Us</a></p>
+                <p><a href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a></p>
+                <p><a [routerLink]="['/dashhome']">Dashboard</a></p>
+                <p><a href="#!">Help</a></p>
+            </div>
+            <!--/.Third column-->
 
-          <!--Fourth column-->
-          <div class="col-md-4 col-lg-3 col-xl-3">
-              <h6 class="title font-bold"><strong>Contact Us</strong></h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p><i class="fa fa-home mr-3"></i> Nairobi, Blessed Hse, Opp Garden City</p>
-              <p><i class="fa fa-envelope mr-3"></i> info@graphineeastafrica.com</p>
-              <p><i class="fa fa-phone mr-3"></i>+254(0)713925275</p>
-              <p><i class="fa fa-print mr-3"></i>+254(0)751311979</p>
-          </div>
-          <!--/.Fourth column-->
+            <!--Fourth column-->
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h6 class="title font-bold"><strong>Contact Us</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><i class="fa fa-home mr-3"></i> Nairobi, Blessed Hse, Opp Garden City</p>
+                <p><i class="fa fa-envelope mr-3"></i> info@graphineeastafrica.com</p>
+                <p><i class="fa fa-phone mr-3"></i>+254(0)713925275</p>
+                <p><i class="fa fa-print mr-3"></i>+254(0)751311979</p>
+            </div>
+            <!--/.Fourth column-->
 
-      </div>
-  </div>
-  <!--/.Footer Links-->
+        </div>
+    </div>
+    <!--/.Footer Links-->
 
-  <!-- Copyright-->
-  <div class="footer-copyright">
-      <div class="container-fluid" style="font-size: large;">
-          © 2018 Copyright: Developed and maintained by <a href="https://onejohi.herokuapp.com"><strong>Onejohi</strong></a>
-      </div>
-  </div>
-  <!--/.Copyright -->
-  
-</footer>
-<!--/.Footer-->
+    <!-- Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid" style="font-size: large;">
+            © 2018 Copyright: Developed and maintained by <a href="https://onejohi.herokuapp.com"><strong>Onejohi</strong></a>
+        </div>
+    </div>
+    <!--/.Copyright -->
+    
+    </footer>
+    <!--/.Footer-->
+</div>
+
 
   <!-- Mobile Template -->
   <ng-template #mobile>
-    Mobile Site Goes Here
+    <mat-toolbar color="dark">
+        <h3 style="color: white;" (click)="goHome()">Graphine East Africa</h3>
+        <span class="space"></span>
+        <button mat-icon-button [matMenuTriggerFor]="mmenu">
+            <mat-icon style="color: white;">more_vert</mat-icon>
+        </button>
+
+        <mat-menu #mmenu>
+            <button mat-menu-item [routerLink]="['/about']">About Graphine</button>
+            <a href="#" target="blank" mat-menu-item>Chat with us</a>
+            <button mat-menu-item>Find Our Offices</button>
+            <a mat-menu-item href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a>
+            <!-- <button mat-menu-item (click)="toAdmin()">Dashboard</button> -->
+        </mat-menu>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only unique-color-dark pt-0">
+
+            <div style="background-color: #2825d6;">
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row py-4 d-flex align-items-center">
+        
+                        <!--Grid column-->
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h4 class="white-text">Connect with us on our social media platforms!</h4>
+                        </div>
+                        <!--Grid column-->
+        
+                        <!--Grid column-->
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+                            <!--Facebook-->
+                            <a class="icons-sm fb-ic ml-0"><i class="fa fa-facebook white-text mr-lg-4"> </i></a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic"><i class="fa fa-twitter white-text mr-lg-4"> </i></a>
+                            <!--Linkedin-->
+                            <a class="icons-sm li-ic"><i class="fa fa-linkedin white-text mr-lg-4"> </i></a>
+                            <!--Instagram-->
+                            <a class="icons-sm ins-ic"><i class="fa fa-instagram white-text mr-lg-4"> </i></a>
+                        </div>
+                        <!--Grid column-->
+        
+                    </div>
+                    <!--Grid row-->
+                </div>
+            </div>
+        
+            <!--Footer Links-->
+            <div class="container mt-5 mb-4 text-center text-md-left">
+                <div class="row mt-3">
+        
+                    <!--First column-->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mb-r">
+                        <h4 class="title font-bold"><strong>Graphine East Africa Limited</strong></h4>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            For all your Installation, Energy, Repairs and Maintenance solutions.
+                            Follow us on our social media pages for free tips and interact directly with our content creators.
+                        </p>
+                    </div>
+                    <!--/.First column-->
+        
+                    <!--Second column
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-r">
+                        <h6 class="title font-bold"><strong>Products</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><a href="#!">MDBootstrap</a></p>
+                        <p><a href="#!">MDWordPress</a></p>
+                        <p><a href="#!">BrandFlow</a></p>
+                        <p><a href="#!">Bootstrap Angular</a></p>
+                    </div>
+                    .Second column-->
+        
+                    <!--Third column-->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-r">
+                        <h6 class="title font-bold"><strong>Useful links</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><a href="#!">Subscribe to newsletter</a></p>
+                        <p><a [routerLink]="['/about']">About Us</a></p>
+                        <p><a href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a></p>
+                        <p><a [routerLink]="['/dashhome']">Dashboard</a></p>
+                        <p><a href="#!">Help</a></p>
+                    </div>
+                    <!--/.Third column-->
+        
+                    <!--Fourth column-->
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <h6 class="title font-bold"><strong>Contact Us</strong></h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p><i class="fa fa-home mr-3"></i> Nairobi, Blessed Hse, Opp Garden City</p>
+                        <p><i class="fa fa-envelope mr-3"></i> info@graphineeastafrica.com</p>
+                        <p><i class="fa fa-phone mr-3"></i>+254(0)713925275</p>
+                        <p><i class="fa fa-print mr-3"></i>+254(0)751311979</p>
+                    </div>
+                    <!--/.Fourth column-->
+        
+                </div>
+            </div>
+            <!--/.Footer Links-->
+        
+            <!-- Copyright-->
+            <div class="footer-copyright">
+                <div class="container-fluid" style="font-size: large;">
+                    © 2018 Copyright: Developed and maintained by <a href="https://onejohi.herokuapp.com"><strong>Onejohi</strong></a>
+                </div>
+            </div>
+            <!--/.Copyright -->
+            
+            </footer>
+            <!--/.Footer-->
   </ng-template>
   <!-- end of Home Template -->
 

@@ -1,4 +1,4 @@
-
+<div *ngIf="!isMobile; else mobileview" class="rainbow">
   <nav>
     <mat-toolbar color="primary">
 
@@ -207,94 +207,387 @@
     </mat-toolbar>
   </nav>
 
-<!--Carousel Wrapper-->
-<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
-    <!--First slide-->
-    <mdb-slide>
-        <div class="view hm-black-strong">
-            <img class="d-block w-100" src="./assets/images/jumbotron1.jpg" alt="First slide">
-            <div class="mask waves-light" mdbRippleRadius></div>
-        </div>
-        <div class="carousel-caption">
-            <h3 class="display-3">Here Is To You: Why Us!</h3>
-            <p class="lead">
-              We consistently deliver our quality expertise with fast paced precision to meet your
-              standards thus building key performance.
-            </p>
-        </div>
-    </mdb-slide>
-    <!--/First slide-->
-    <!--Second slide-->
-    <mdb-slide>
-        <div class="view hm-black-strong">
-            <img class="d-block w-100" src="./assets/images/jumbotron2.jpg" alt="Second slide">
-            <div class="mask waves-light" mdbRippleRadius></div>
-        </div>
-        <div class="carousel-caption">
-            <h3 class="display-3">Experience</h3>
-            <p class="lead">
-              We are the fastest growing installation, maintenance and repair company in the 
-              East Africa Region backed by years of professional experience and quality service.
-            </p>
-        </div>
-    </mdb-slide>
-    <!--/Second slide-->
-    <!--Third slide-->
-    <mdb-slide>
-        <div class="view hm-black-strong">
-            <img class="d-block w-100" src="./assets/images/jumbotron3.jpg" alt="Third slide">
-            <div class="mask waves-light" mdbRippleRadius></div>
-        </div>
-        <div class="carousel-caption">
-            <h3 class="display-3">Time</h3>
-            <p class="lead">
-              Through precision, we deliver quality. We make our service process seamless by 
-              building trust and performance. In time delivery is our stronghold.
-            </p>
-        </div>
-    </mdb-slide>
-    <!--/Third slide-->
-</mdb-carousel>
-<!--/.Carousel Wrapper-->
+  <!--Carousel Wrapper-->
+  <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+      <!--First slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron1.jpg" alt="First slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Here Is To You: Why Us!</h3>
+              <p class="lead">
+                We consistently deliver our quality expertise with fast paced precision to meet your
+                standards thus building key performance.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/First slide-->
+      <!--Second slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron2.jpg" alt="Second slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Experience</h3>
+              <p class="lead">
+                We are the fastest growing installation, maintenance and repair company in the 
+                East Africa Region backed by years of professional experience and quality service.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/Second slide-->
+      <!--Third slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron3.jpg" alt="Third slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Time</h3>
+              <p class="lead">
+                Through precision, we deliver quality. We make our service process seamless by 
+                building trust and performance. In time delivery is our stronghold.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/Third slide-->
+  </mdb-carousel>
+  <!--/.Carousel Wrapper-->
 
-<div class="container">
+  <div class="container">
 
-  <div class="moresection">
-    <br>
-    <br>
-    <div class="text-center">
-        <img src="./assets/images/graphine_logo.png" id="grlogo" height="200px" width="200px" alt="Graphine East Africa Limited">
-    </div>
-    <br>
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <h3>Installation</h3>
-        <hr class="s50">
-        <img src="./assets/icons/installation.png" width="100px" height="100px" alt="Installation">
-        <p>
-          Have you ever been stranded in the Where, How, What, Which, When and Why's? We are here to do
-          your ground homework and ensure your equipment is well stationed (as the product safety design)
-          working properly and leave the premises clean as found.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Maintenance</h3>
-        <hr class="s50">
-        <img src="./assets/icons/maintenance.png" width="100px" height="100px" alt="Maintenance">
-        <p>
-          Our technicians are here to deliver a Total Productive Maintenance that suits your needs, whether
-          Preventive, Corrective, Breakdown, Turnaround or Periodic maintenance. We are here to serve you better.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Repair</h3>
-        <hr class="s50">
-        <img src="./assets/icons/repair.png" width="100px" height="100px" alt="Repair">
-        <p>
-          Whether your Refigerator, Generator, AC Unit, Security System or Solar System are on a fritz.
-          Don't worry, don't hesitate, just schedule us to see your equipment. We handle repairs of any equipment.
-        </p>
+    <div class="moresection">
+      <br>
+      <br>
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <h3>Installation</h3>
+          <hr class="s50">
+          <img src="./assets/icons/installation.png" width="100px" height="100px" alt="Installation">
+          <p>
+            Have you ever been stranded in the Where, How, What, Which, When and Why's? We are here to do
+            your ground homework and ensure your equipment is well stationed (as the product safety design)
+            working properly and leave the premises clean as found.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Maintenance</h3>
+          <hr class="s50">
+          <img src="./assets/icons/maintenance.png" width="100px" height="100px" alt="Maintenance">
+          <p>
+            Our technicians are here to deliver a Total Productive Maintenance that suits your needs, whether
+            Preventive, Corrective, Breakdown, Turnaround or Periodic maintenance. We are here to serve you better.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Repair</h3>
+          <hr class="s50">
+          <img src="./assets/icons/repair.png" width="100px" height="100px" alt="Repair">
+          <p>
+            Whether your Refigerator, Generator, AC Unit, Security System or Solar System are on a fritz.
+            Don't worry, don't hesitate, just schedule us to see your equipment. We handle repairs of any equipment.
+          </p>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
+
+<ng-template #mobileview>
+  <nav class="nav">
+    <mat-list>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="resSer">Residential Services</mat-list-item>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="hotSer">Hotel & Institutions</mat-list-item>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="comSer">Commercial Services</mat-list-item>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="buiSer">Building Repairs</mat-list-item>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="entEqu">Entertainment Equipment</mat-list-item>
+      <mat-list-item role="listitem" [matMenuTriggerFor]="greSol">Green Energy Solutions</mat-list-item>
+    </mat-list>
+
+    <!-- Sub menu list -->
+    <mat-menu #resSer="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="resKitchen">Kitchen</button>
+      <button mat-menu-item [matMenuTriggerFor]="resLaundry">Laundry</button>
+      <button mat-menu-item (click)="schedule(1, 'Appliances', 'Appliances')">Appliances</button>
+      <button mat-menu-item [matMenuTriggerFor]="resRAC">Refrigeration and Air Conditioning</button>
+      <button mat-menu-item (click)="schedule(1, 'Power Generators', 'Power Generators')">Power Generators</button>
+      <button mat-menu-item (click)="schedule(1, 'Security Systems', 'Security Systems')">Security Systems</button>
+      <button mat-menu-item (click)="schedule(1, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</button>
+    </mat-menu>
+
+    <mat-menu #hotSer="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="hotKitchen">Kitchen</button>
+      <button mat-menu-item [matMenuTriggerFor]="hotLaundry">Laundry</button>
+      <button mat-menu-item (click)="schedule(2, 'Appliances', 'Appliances')">Appliances</button>
+      <button mat-menu-item [matMenuTriggerFor]="hotRAC">Refrigeration and Air Conditioning</button>
+      <button mat-menu-item (click)="schedule(2, 'Laboratory Equipment', 'Laboratory Equipment')">Laboratory Equipment</button>
+      <button mat-menu-item (click)="schedule(2, 'Power Generators', 'Power Generators')">Power Generators</button>
+      <button mat-menu-item (click)="schedule(2, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</button>
+      <button mat-menu-item (click)="schedule(2, 'Security Systems', 'Security Systems')">Security Systems</button>
+      <button mat-menu-item (click)="schedule(2, 'Steam Boiler', 'Steam Boiler')">Steam Boiler</button>
+    </mat-menu>
+
+    <mat-menu #comSer="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="comKitchen">Kitchen</button>
+      <button mat-menu-item [matMenuTriggerFor]="comLaundry">Laundry</button>
+      <button mat-menu-item (click)="schedule(2, 'Appliances', 'Appliances')">Appliances</button>
+      <button mat-menu-item [matMenuTriggerFor]="comRAC">Refrigeration and Air Conditioning</button>
+      <button mat-menu-item (click)="schedule(3, 'Power Generators', 'Power Generators')">Power Generators</button>
+      <button mat-menu-item (click)="schedule(3, 'Audio Visual Equipment', 'Audio Visual Equipment')">Audio Visual Equipment</button>
+      <button mat-menu-item (click)="schedule(3, 'Security Systems', 'Security Systems')">Security Systems</button>
+      <button mat-menu-item (click)="schedule(3, 'Steam Boiler', 'Steam Boiler')">Steam Boiler</button>
+    </mat-menu>
+
+    <mat-menu #buiSer="matMenu">
+      <button mat-menu-item (click)="schedule(4, 'Electrical Works', 'Electrical Works')">Electrical Works</button>
+      <button mat-menu-item (click)="schedule(4, 'Water System and Drainage', 'Water System and Drainage')">Water System and Drainage</button>
+      <button mat-menu-item (click)="schedule(4, 'Interior works', 'Interior works')">Interior Works</button>
+      <button mat-menu-item [matMenuTriggerFor]="civilWorks">Civil Works</button>
+    </mat-menu>
+
+    <mat-menu #entEqu="matMenu">
+      <button mat-menu-item (click)="schedule(5, 'Audi Visual Equipment', 'Audi Visual Equipment')">Audi Visual Equipment</button>
+      <button mat-menu-item (click)="schedule(5, 'Betting Machines', 'Betting Machines')">Betting Machines</button>
+      <button mat-menu-item (click)="schedule(5, 'Kids Fun Machines', 'Kids Fun Machines')">Kids Fun Machines</button>
+      <button mat-menu-item (click)="schedule(5, 'Bouncing Castle', 'Bouncing Castle')">Bouncing Castles</button>
+      <button mat-menu-item (click)="schedule(5, 'Kids Trains', 'Kids Trains')">Kids Trains</button>
+      <button mat-menu-item (click)="schedule(5, 'Roll Caster & Speed Boats','Roll Caster & Speed Boats')">Roll Caster & Speed Boats</button>
+      <button mat-menu-item (click)="schedule(5, 'Kids Swings','Kids Swings')">Kids Swings</button>
+      <button mat-menu-item (click)="schedule(5, 'Power Generators','Power Generators')">Power Generators</button>
+      <button mat-menu-item (click)="schedule(5, 'Security Systems','Security Systems')">Security Systems</button>
+    </mat-menu>
+
+    <mat-menu #greSol="matMenu">
+      <button mat-menu-item (click)="schedule(6, 'Maintenance', 'Maintenance')">Maintenance</button>
+      <button mat-menu-item [matMenuTriggerFor]="installation">Installation</button>
+      <button mat-menu-item (click)="schedule(6, 'Energy Audit', 'Energy Audit')">Energy Audit</button>
+      <button mat-menu-item (click)="schedule(6, 'Energy Saving Consultant', 'Energy Saving Consultant')">Energy Saving Consultant</button>
+    </mat-menu>
+
+    <!-- SubSub Menus -->
+    <mat-menu #resKitchen="matMenu">
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Fridge')">Fridge</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Freezer')">Freezer</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Oven')">Oven</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Microwave')">Microwave</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Toaster')">Toaster</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Mixer')">Mixer</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Juicer')">Juicer</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Food Processor')">Food Processor</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Electric Kettle')">Electric Kettle</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Grill Electric')">Grill Electric</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Dishwasher')">Dishwasher</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Water Dispenser')">Water Dispenser</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Coffee Machines')">Coffee Machines</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Weighing Scale')">Weighing Scale</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Chicken Grill')">Chicken Grill</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</button>
+      <button mat-menu-item (click)="schedule(1, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</button>
+    </mat-menu>
+
+    <mat-menu #resLaundry="matMenu">
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Waching Machines')">Washing Machines</button>
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Dryer')">Dryer</button>
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Iron Steam')">Iron Steam</button>
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Vents')">Vents</button>
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Caunders')">Caunders</button>
+      <button mat-menu-item (click)="schedule(1, 'Laundry', 'Others')">Others</button>
+    </mat-menu>
+
+    <mat-menu #resRAC="matMenu">
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</button>
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</button>
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</button>
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Ice Makers')">Ice Makers</button>
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</button>
+      <button mat-menu-item (click)="schedule(1, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</button>
+    </mat-menu>
+
+    <mat-menu #hotKitchen="matMenu">
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Fridge')">Fridge</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Freezer')">Freezer</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Oven')">Oven</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Microwave')">Microwave</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Toaster')">Toaster</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Mixer')">Mixer</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Juicer')">Juicer</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Food Processor')">Food Processor</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Electric Kettle')">Electric Kettle</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Grill Electric')">Grill Electric</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Dishwasher')">Dishwasher</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Water Dispenser')">Water Dispenser</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Coffee Machines')">Coffee Machines</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Weighing Scale')">Weighing Scale</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Chicken Grill')">Chicken Grill</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</button>
+        <button mat-menu-item (click)="schedule(2, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</button>
+    </mat-menu>
+
+    <mat-menu #hotLaundry="matMenu">
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Waching Machines')">Washing Machines</button>
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Dryer')">Dryer</button>
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Iron Steam')">Iron Steam</button>
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Vents')">Vents</button>
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Caunders')">Caunders</button>
+        <button mat-menu-item (click)="schedule(2, 'Laundry', 'Others')">Others</button>
+    </mat-menu>
+
+    <mat-menu #hotRAC="matMenu">
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</button>
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</button>
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</button>
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Ice Makers')">Ice Makers</button>
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</button>
+        <button mat-menu-item (click)="schedule(2, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</button>
+    </mat-menu>
+
+    <mat-menu #comKitchen="matMenu">
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Fridge')">Fridge</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Freezer')">Freezer</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Oven')">Oven</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Microwave')">Microwave</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Toaster')">Toaster</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Mixer')">Mixer</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Juicer')">Juicer</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Food Processor')">Food Processor</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Electric Kettle')">Electric Kettle</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Grill Electric')">Grill Electric</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Dishwasher')">Dishwasher</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Water Dispenser')">Water Dispenser</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Coffee Machines')">Coffee Machines</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Weighing Scale')">Weighing Scale</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Chicken Grill')">Chicken Grill</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Hood - Kitchen')">Hood - Kitchen</button>
+        <button mat-menu-item (click)="schedule(3, 'Kitchen', 'Kitchen Fan')">Kitchen Fan</button>
+    </mat-menu>
+
+    <mat-menu #comLaundry="matMenu">
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Waching Machines')">Washing Machines</button>
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Dryer')">Dryer</button>
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Iron Steam')">Iron Steam</button>
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Vents')">Vents</button>
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Caunders')">Caunders</button>
+        <button mat-menu-item (click)="schedule(3, 'Laundry', 'Others')">Others</button>
+    </mat-menu>
+
+    <mat-menu #comRAC="matMenu">
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Fridges')">Fridges</button>
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Chillers')">Chillers</button>
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Freezer')">Freezer</button>
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Ice Makers')">Ice Makers</button>
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Coolers')">Coolers</button>
+        <button mat-menu-item (click)="schedule(3, 'Refrigeration and Air Conditioning', 'Air Conditioning (AC)')">Air Conditioning (AC)</button>
+    </mat-menu>
+
+    <mat-menu #civilWorks="matMenu">
+      <button mat-menu-item (click)="schedule(4, 'Civil Works', 'Pavements')">Pavements</button>
+      <button mat-menu-item (click)="schedule(4, 'Civil Works', 'Partitioning')">Partitioning</button>
+      <button mat-menu-item (click)="schedule(4, 'Civil Works', 'Roofing')">Roofing</button>
+      <button mat-menu-item (click)="schedule(4, 'Civil Works', 'Fencing')">Fencing</button>
+      <button mat-menu-item (click)="schedule(4, 'Civil Works', 'Landscapping')">Landscapping</button>
+    </mat-menu>
+
+    <mat-menu #installation="matMenu">
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar System')">Solar System</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Street Lights')">Solar Street Lights</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Water Heating Systems')">Solar Water Heating Systems</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Power')">Solar Power</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Pumps')">Solar Pumps</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Designed Structures')">Solar Designed Structures</button>
+      <button mat-menu-item (click)="schedule(6, 'Installation', 'Solar Saving Consultants')">Solar Saving Consultants</button>
+    </mat-menu>
+
+  </nav>
+
+  <!--Carousel Wrapper-->
+  <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+      <!--First slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron1.jpg" alt="First slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Here Is To You: Why Us!</h3>
+              <p class="lead">
+                We consistently deliver our quality expertise with fast paced precision to meet your
+                standards thus building key performance.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/First slide-->
+      <!--Second slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron2.jpg" alt="Second slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Experience</h3>
+              <p class="lead">
+                We are the fastest growing installation, maintenance and repair company in the 
+                East Africa Region backed by years of professional experience and quality service.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/Second slide-->
+      <!--Third slide-->
+      <mdb-slide>
+          <div class="view hm-black-strong">
+              <img class="d-block w-100" src="./assets/images/jumbotron3.jpg" alt="Third slide">
+              <div class="mask waves-light" mdbRippleRadius></div>
+          </div>
+          <div class="carousel-caption">
+              <h3 class="display-3">Time</h3>
+              <p class="lead">
+                Through precision, we deliver quality. We make our service process seamless by 
+                building trust and performance. In time delivery is our stronghold.
+              </p>
+          </div>
+      </mdb-slide>
+      <!--/Third slide-->
+  </mdb-carousel>
+  <!--/.Carousel Wrapper-->
+
+  <div class="container">
+
+    <div class="moresection">
+      <br>
+      <br>
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <h3>Installation</h3>
+          <hr class="s50">
+          <img src="./assets/icons/installation.png" width="100px" height="100px" alt="Installation">
+          <p>
+            Have you ever been stranded in the Where, How, What, Which, When and Why's? We are here to do
+            your ground homework and ensure your equipment is well stationed (as the product safety design)
+            working properly and leave the premises clean as found.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Maintenance</h3>
+          <hr class="s50">
+          <img src="./assets/icons/maintenance.png" width="100px" height="100px" alt="Maintenance">
+          <p>
+            Our technicians are here to deliver a Total Productive Maintenance that suits your needs, whether
+            Preventive, Corrective, Breakdown, Turnaround or Periodic maintenance. We are here to serve you better.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Repair</h3>
+          <hr class="s50">
+          <img src="./assets/icons/repair.png" width="100px" height="100px" alt="Repair">
+          <p>
+            Whether your Refigerator, Generator, AC Unit, Security System or Solar System are on a fritz.
+            Don't worry, don't hesitate, just schedule us to see your equipment. We handle repairs of any equipment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

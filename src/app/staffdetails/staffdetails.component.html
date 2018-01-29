@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   {{username}}
   <span class="space"></span>
+  <button mat-button>Delete Account</button>
+  <button mat-button>Suspend Account</button>
   <a href="mailto:{{email}}" mat-raised-button color="accent">Mail {{username}}</a>
 </mat-toolbar>
 
@@ -42,13 +44,23 @@
       </mat-list-item>
 
       <mat-divider></mat-divider>
-
-      <h2 mat-subheader>Permissions</h2>
-
-      <mat-selection-list #permissions>
-        <mat-list-option >Add Technician</mat-list-option>
-      </mat-selection-list>
     </mat-list>
+
+    <h5>Permissions</h5>
+      <mat-checkbox [checked]="add_technician" [(ngModel)]="add_technician">Add Technician</mat-checkbox><br>
+      <mat-checkbox [checked]="approve_order" [(ngModel)]="approve_order">Approve Order</mat-checkbox><br>
+      <mat-checkbox [ckecked]="cancel_order" [(ngModel)]="cancel_order">Cancel Order</mat-checkbox><br>
+      <mat-checkbox [ckecked]="complete_order" [(ngModel)]="complete_order">Complete Order</mat-checkbox><br>
+      <mat-checkbox [ckecked]="delete_order" [(ngModel)]="delete_order">Delete Order</mat-checkbox><br>
+      <mat-checkbox [ckecked]="edit_technician" [(ngModel)]="edit_technician">Edit Technician</mat-checkbox><br>
+      <mat-checkbox [ckecked]="email_client" [(ngModel)]="email_client">Email Client</mat-checkbox><br>
+      <mat-checkbox [ckecked]="generate_client_info" [(ngModel)]="generate_client_info">Generate Client Info</mat-checkbox><br>
+      <mat-checkbox [ckecked]="generate_report" [(ngModel)]="generate_report">Generate Reports</mat-checkbox><br>
+      <mat-checkbox [ckecked]="quote_order" [(ngModel)]="quote_order">Quote Order</mat-checkbox><br>
+      <mat-checkbox [ckecked]="remove_technician" [(ngModel)]="remove_technician">Remove Technician</mat-checkbox><br>
+      <mat-checkbox [ckecked]="view_clients" [(ngModel)]="view_clients">View Clients</mat-checkbox><br>
+
+      <button mat-raised-button color="primary" (click)="updatePermissions(id)">Update Permissions</button>
 
   </div>
   <div class="col-sm-8">

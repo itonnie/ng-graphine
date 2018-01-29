@@ -10,14 +10,4 @@ export class SocketsService {
     this.socket = io();
   }
 
-  sendLocation(pos) {
-    this.socket.emit("locationinfo", pos);
-  }
-
-  recieveLocation() {
-    this.socket.on("loc", (data) => {
-      console.log(data);
-    });
-  }
-
 }

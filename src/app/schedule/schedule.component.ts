@@ -37,6 +37,8 @@ export class ScheduleComponent implements OnInit {
   sterr: String;
   pherr: String;
 
+  isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   constructor(
     public ar: ActivatedRoute, private snackbar: MatSnackBar, 
     public router: Router, 

@@ -7,3 +7,20 @@
   justify-content: space-between;
   align-items: center;
 }
+
+th {
+  font-size: large;
+}
+
+td {
+  font-size: large;
+}
+
+input {
+  width: 200px;
+  margin: 0 5px;
+}
+
+.form-grid-6 {
+  display: flex;
+}

@@ -4,6 +4,10 @@
     margin-bottom: 0px;
 }
 
+.rainbow {
+    background: linear-gradient(-90deg, rgba(94, 197, 94, 0.767), rgba(48, 76, 235, 0.644), rgba(230, 94, 94, 0.527));
+}
+
 .jumbotron {
     border-radius: 0px;
 }
@@ -140,4 +144,18 @@
 @keyframes fade {
     from { opacity: 4 }
     to { opacity: 1}
+}
+
+@media screen and (max-width: 480px) {
+    .nav {
+        background: royalblue;
+    }
+
+    .mat-list-item {
+        color: white;
+    }
+
+    .display-3 {
+        font-size: unset;
+    }
 }

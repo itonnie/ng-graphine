@@ -13,7 +13,7 @@ export class AppdataService {
   currentId = this.idSource.asObservable();
   currentStaffId = this.staffIdSource.asObservable();
   currentLevel = this.stafflevel.asObservable();
-  host: String = "";
+  host: String = "http://localhost:80";
 
   constructor(public http: Http) { }
 
@@ -83,6 +83,10 @@ export class AppdataService {
     return this.http.get(this.host+"/admin/paid/"+id).map(res => res.json());
   }
 
+  cancelOrder(id: String) {
+    return this.http.get(this.host+"/admin/cancel/"+id).map(res => res.json());
+  }
+
   addTechnician(username, email, phone, staffid, title) {
     return this.http.post(this.host+"/admin/addtechnician", {
       username: username,
@@ -135,6 +139,32 @@ export class AppdataService {
       name: name,
       email: email,
       message: message
+    }).map(res => res.json());
+  }
+
+  comment(username, id, comment) {
+    return this.http.post(this.host+"/admin/comment", {
+      id: id,
+      username: username,
+      comment: comment
+    }).map(res => res.json());
+  }
+
+  updateTechPermissions(data) {
+    return this.http.post(this.host+"/admin/technician_permissions", {
+      id: data.id,
+      g_r: data.gr,
+      q_o: data.qo,
+      a_t: data.at,
+      r_t: data.rt,
+      e_t: data.et,
+      d_o: data.do,
+      c_o: data.co,
+      v_c: data.vc,
+      g_c_i: data.gci,
+      a_o: data.ao,
+      com_o: data.como,
+      e_c: data.ec
     }).map(res => res.json());
   }
 

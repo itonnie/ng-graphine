@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   constructor(private router: Router) {
   }

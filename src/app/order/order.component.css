@@ -4,3 +4,21 @@
     border-radius: 5px;
     margin: .7em .7em;
 }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-auto-rows: 600px;
+}
+
+.main-grid > div > mat-list > mat-list-item {
+    color: white;
+}
+
+.timewrapper {
+    margin: 10px 15px;
+    background: yellow;
+    color: #333;
+    padding: 7px;
+    padding-bottom: 15px; 
+}

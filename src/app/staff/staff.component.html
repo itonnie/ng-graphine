@@ -24,27 +24,19 @@
         </mat-expansion-panel-header>
 
         <form [formGroup]="add_tech" (submit)="addtechnician(add_tech.value)">
-          <mat-form-field>
-            <input type="text" placeholder="Username" matInput formControlName="username">
-          </mat-form-field>
+          <div class="form-grid-6">
+              <input type="text" placeholder="Username" class="form-control" formControlName="username">
 
-          <mat-form-field>
-            <input type="tel" placeholder="Phone" matInput formControlName="phone">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input type="email" placeholder="Email" matInput formControlName="email">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input type="text" placeholder="Staff ID" matInput formControlName="staff_id">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input type="text" placeholder="Job Title" matInput formControlName="title">
-          </mat-form-field>
-
-          <button type="submit" mat-button>Add Tech</button>
+              <input type="tel" placeholder="Phone" class="form-control" formControlName="phone">
+              
+              <input type="email" placeholder="Email" class="form-control" formControlName="email">
+              
+              <input type="text" placeholder="Staff ID" class="form-control" formControlName="staff_id">
+              
+              <input type="text" placeholder="Job Title" class="form-control" formControlName="title">
+    
+              <button type="submit" class="btn btn-primary">Add Tech</button>
+          </div>
         </form>
       </mat-expansion-panel>
     </mat-accordion>
@@ -90,23 +82,17 @@
             </mat-expansion-panel-header>
     
             <form [formGroup]="add_man" (submit)="addmanager(add_man.value)">
-              <mat-form-field>
-                <input type="text" placeholder="Username" matInput formControlName="username">
-              </mat-form-field>
-    
-              <mat-form-field>
-                <input type="tel" placeholder="Phone" matInput formControlName="phone">
-              </mat-form-field>
-    
-              <mat-form-field>
-                <input type="email" placeholder="Email" matInput formControlName="email">
-              </mat-form-field>
-    
-              <mat-form-field>
-                <input type="text" placeholder="Staff ID" matInput formControlName="staff_id">
-              </mat-form-field>
-    
-              <button type="submit" mat-button>Add Manager</button>
+                <div class="form-grid-6">
+                    <input type="text" placeholder="Username" class="form-control" formControlName="username">
+      
+                    <input type="tel" placeholder="Phone" class="form-control" formControlName="phone">
+                    
+                    <input type="email" placeholder="Email" class="form-control" formControlName="email">
+                    
+                    <input type="text" placeholder="Staff ID" class="form-control" formControlName="staff_id">
+          
+                    <button type="submit" class="btn btn-primary">Add Manager</button>
+                </div>
             </form>
           </mat-expansion-panel>
         </mat-accordion>

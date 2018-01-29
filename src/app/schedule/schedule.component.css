@@ -33,6 +33,14 @@
     .leftPanel {
         text-align: center;
     }
+
+    .nav {
+        background: royalblue;
+    }
+
+    .mat-list-item {
+        color: white;
+    }
 }
 
 @keyframes alertAnim {
