@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: 'app-dashhome',
@@ -21,7 +22,7 @@ export class DashhomeComponent implements OnInit {
   generate_report: Boolean;
   view_clients: Boolean;
 
-  constructor(private router: Router, private link: AppdataService) {
+  constructor(private router: Router, private link: AppdataService, private snack: MatSnackBar) {
     if(window.localStorage.getItem("username") == null) {
       this.router.navigate(["/dashlogin"]);
     } else {
@@ -114,6 +115,38 @@ export class DashhomeComponent implements OnInit {
       default:
         this.router.navigate(['/dashhome']);
       break;
+    }
+  }
+
+  changePassword() {
+    var currentPassword = prompt("Enter current password", "");
+    var newPassword = prompt("Enter new password", "");
+    var confirmPassword = prompt("Re enter new password", "");
+
+    if(newPassword != confirmPassword) {
+      this.snack.open("Please confirm your new password and try again", "okay", {
+        duration: 3000,
+        verticalPosition: "top"
+      });
+    } else if(currentPassword == "" || newPassword == "" || confirmPassword == "") {
+      this.snack.open("Passwords aren't allowed to be empty", "Alright", {
+        duration: 3000,
+        verticalPosition: "top"
+      })
+    } else {
+      this.link.changepassword(window.localStorage.getItem("username"), currentPassword, newPassword).subscribe(data => {
+        if(data.ok == false) {
+          this.snack.open(data.message, "too bad", {
+            duration: 3000,
+            verticalPosition: "top"
+          });
+        } else {
+          this.snack.open(data.message, "Aw yeah!", {
+            duration: 3000,
+            verticalPosition: "top"
+          });
+        }
+      });
     }
   }
 

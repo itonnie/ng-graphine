@@ -44,12 +44,12 @@ body {
  
 .menu a {
     transition:all linear 0.15s;
-    color:#f8f8f8;
+    color:#333;
 }
  
 .menu li:hover > a, .menu .current-item > a {
     text-decoration:none;
-    color: white;
+    color: #333 !important;
 }
  
 /*----- Top Level -----*/
@@ -61,7 +61,6 @@ body {
 .menu > ul > li > a {
     padding:10px 10px;
     font-size: 16px;
-    border-right: 1px solid white;
     border-bottom: 3px solid transparent;
 }
  
@@ -87,7 +86,7 @@ body {
     opacity:0;
     transition: opacity linear .15s;
     box-shadow:0px 2px 3px rgba(0,0,0,0.2);
-    background:#0e005f;
+    background:rgb(168, 168, 168);
     margin-top: 5px;
 }
 
@@ -102,7 +101,8 @@ body {
     top: -5px;
     transition: opacity linear 0.15s;
     box-shadow:0px 2px 3px rgba(0,0,0,0.2);
-    background:#0e005f;
+    background:#ffffff;
+    color: #333;
     margin-top: 5px;
 }
 
@@ -128,5 +128,5 @@ body {
 }
  
 .submenu li a:hover, .submenu .current-item a {
-    background:#0400eb;
+    background: gray;
 }

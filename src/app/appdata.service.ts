@@ -13,7 +13,7 @@ export class AppdataService {
   currentId = this.idSource.asObservable();
   currentStaffId = this.staffIdSource.asObservable();
   currentLevel = this.stafflevel.asObservable();
-  host: String = "http://localhost:80";
+  host: String = "";
 
   constructor(public http: Http) { }
 
@@ -165,6 +165,14 @@ export class AppdataService {
       a_o: data.ao,
       com_o: data.como,
       e_c: data.ec
+    }).map(res => res.json());
+  }
+
+  changepassword(username, current, newp) {
+    return this.http.post(this.host+"/admin/changepassword", {
+      username: username,
+      current: current,
+      newpassword: newp
     }).map(res => res.json());
   }
 

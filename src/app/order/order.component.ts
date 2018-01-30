@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from "@angular/material";
+import { window, document } from 'angular-bootstrap-md/utils/facade/browser';
 
 @Component({
   selector: 'app-order',
@@ -35,6 +36,20 @@ export class OrderComponent implements OnInit {
   quotation_box: Number;
   commentForm: FormGroup;
 
+  //User permissions
+  add_technician: Boolean;
+  approve_order: Boolean;
+  cancel_order: Boolean;
+  complete_order: Boolean;
+  delete_technician: Boolean;
+  edit_technician: Boolean;
+  email_client: Boolean;
+  generate_client_info: Boolean;
+  generate_report: Boolean;
+  quote_order: Boolean;
+  remove_technician: Boolean;
+  view_clients: Boolean;
+
   constructor(
     private rActivated: ActivatedRoute,
     private appdata: AppdataService, 
@@ -42,6 +57,7 @@ export class OrderComponent implements OnInit {
     private fb: FormBuilder,
     private snack: MatSnackBar
   ) {
+
     this.appdata.currentId.subscribe(data => {
       this.id = data;
       this.appdata.viewOrder(data).subscribe(response => {
@@ -76,6 +92,21 @@ export class OrderComponent implements OnInit {
       "comment": [null, Validators.compose([ Validators.minLength(3), Validators.maxLength(150)])]
     });
 
+    //set permissions from LocalStorage
+    this.add_technician = Boolean(window.localStorage.getItem("add_technician"));
+    this.approve_order = Boolean(window.localStorage.getItem("approve_order"));
+    this.cancel_order = Boolean(window.localStorage.getItem("cancel_order"));
+    this.complete_order = Boolean(window.localStorage.getItem("complete_order"));
+    this.delete_technician = Boolean(window.localStorage.getItem("delete_technician"));
+    this.edit_technician = Boolean(window.localStorage.getItem("edit_technician"));
+    this.email_client = Boolean(window.localStorage.getItem("email_client"));
+    this.generate_client_info = Boolean(window.localStorage.getItem("generate_client_info"));
+    this.generate_report = Boolean(window.localStorage.getItem("generate_report"));
+    this.quote_order = new Boolean(window.localStorage.getItem("quote_order"));
+    this.remove_technician = Boolean(window.localStorage.getItem("remove_technician"));
+    this.view_clients = Boolean(window.localStorage.getItem("view_clients"));
+    console.log(this.quote_order);
+
   }
 
   ngOnInit() {
@@ -83,9 +114,14 @@ export class OrderComponent implements OnInit {
 
   quoteOrder(id: String, quote: Number) {
     this.appdata.quoteOrder(id, quote).subscribe(response => {
-      this.price = response.data.price;
-      console.log(response);
-    })
+      if(response.ok == false) {
+        this.snack.open(response.message, "dismiss", {
+          duration: 3000
+        });
+      } else {
+        this.price = response.data.price;
+      }
+    });
   }
 
   submitForm(id, value) {

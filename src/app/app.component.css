@@ -8,17 +8,13 @@
 }
 */
 
-mat-toolbar {
-    background: #333;
-}
-
 footer.page-footer {
     margin-top: 0px;
 }
 
 .header h1 {
     cursor: pointer;
-    color: white;
+    color: rgb(36, 100, 240);
     font-size: x-large;
 }
 
