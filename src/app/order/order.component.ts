@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
+import { DatePipe } from "@angular/common";
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from "@angular/material";
 import { window, document } from 'angular-bootstrap-md/utils/facade/browser';
@@ -28,10 +29,11 @@ export class OrderComponent implements OnInit {
   pending: Boolean;
   cancelled: Boolean;
   email: String;
-  to: Date;
-  from: Date;
+  time: Date;
+  date: Date;
+  timestamp: Date;
   desc: String;
-  comments: any[]
+  comments: any[];
 
   quotation_box: Number;
   commentForm: FormGroup;
@@ -76,8 +78,9 @@ export class OrderComponent implements OnInit {
         this.completed = response.data.completed;
         this.pending = response.data.pending;
         this.cancelled = response.data.cancelled;
-        this.to = new Date(response.data.to);
-        this.from = new Date(response.data.from);
+        this.time = response.data.time;
+        this.date = response.data.date;
+        this.timestamp = new Date(response.data.timestamp);
         this.price = response.data.price;
         this.desc = response.data.desc;
         this.comments = response.data.comments;
@@ -146,13 +149,32 @@ export class OrderComponent implements OnInit {
         this.completed = response.data.completed;
         this.pending = response.data.pending;
         this.cancelled = response.data.cancelled;
-        this.to = new Date(response.data.to);
-        this.from = new Date(response.data.from);
+        this.time = response.data.time;
+        this.date = response.data.date;
+        this.timestamp = new Date(response.data.timestamp);
         this.price = response.data.price;
         this.desc = response.data.desc;
         this.comments = response.data.comments;
       });
     }
+    this.commentForm.controls["comment"].setValue("");
+  }
+
+  cancelOrder(id) {
+    this.appdata.cancelOrder(id).subscribe(data => {
+      if(data.ok == true) {
+        this.snack.open("Order has been successfully cancelled.", "Okay", {
+          duration: 3000,
+          verticalPosition: "top"
+        });
+        this.router.navigate(["/dashhome"]);
+      } else {
+        this.snack.open("Could not cancel order, please contact admin or check your connection", "ok", {
+          duration: 3000,
+          verticalPosition: "top"
+        });
+      }
+    })
   }
 
 }

@@ -20,8 +20,8 @@ export class ScheduleComponent implements OnInit {
   subsub: String;
   counties: String[];
 
-  from: Date;
-  to: Date;
+  time: Date;
+  date: Date;
   fullname: String = "";
   town: String = "";
   select: String = "";
@@ -48,8 +48,8 @@ export class ScheduleComponent implements OnInit {
   {
     this.rForm = fb.group({
       'fullname': [null, Validators.required],
-      'from': [null, Validators.required],
-      'to': [null, Validators.required],
+      'date': [null, Validators.required],
+      'time': [],
       'town': [null, Validators.required],
       'street': '',
       'select': [null, Validators.required],
@@ -59,6 +59,28 @@ export class ScheduleComponent implements OnInit {
       'warrant': [null],
       'phone': [null, Validators.compose([ Validators.required, Validators.minLength(10), Validators.maxLength(11)])]
     })
+  }
+
+  phoneNumberValidator(number) {
+    var phone = /^\d{10}$/;
+    if(number.toString().match(phone)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  checkPhone(phone) {
+    if(phone == undefined) {
+
+    } else{
+      if(this.phoneNumberValidator(phone) == true) {
+        this.rForm.controls['phone'].valid;
+      } else {
+        this.rForm.controls['phone'].invalid;
+      }
+    }
+ 
   }
 
   ngOnInit() {
@@ -80,10 +102,9 @@ export class ScheduleComponent implements OnInit {
   }
 
   scheduleAppointment(form) {
-    
-    this.appdata.makeAppointment(form.from, form.to, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.sub, this.subsub, form.description, form.email, form.warranty).subscribe(data => {
+    this.appdata.makeAppointment(form.time, form.date, form.select, form.fullname, form.town, form.street, form.phone, this.category, this.sub, this.subsub, form.description, form.email, form.warranty).subscribe(data => {
       if(data.ok == true) {
-        this.snackbar.open("Order id " + data.id.toString().toUpperCase() + " has been recieved", "dismiss", {
+        this.snackbar.open("Order for "+ form.fullname +" has been recieved, Confirm order from your email.", "dismiss", {
           duration: 3000
         });
         this.router.navigate(['/']);

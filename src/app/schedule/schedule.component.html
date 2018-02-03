@@ -212,23 +212,36 @@
           <h1 style="font-size: 40px;font-family: 'Segoe UI Light'; font-weight: 900;">{{category}}</h1>
 
           <p class="lead"> Thank you for choosing us to do the <strong>{{subsub}}</strong> work for you.</p>
-          <p class="lead"> Please book an appointment for our experts to come to you at your own convinient time to make you a quotation and view the job.</p>
+          <p class="lead"> Please book an appointment for our experts to come to you and view the job and then the company will send you a quotation.</p>
 
       </div>
       <div class="col-sm-6">
           <div class="card">
               <div class="card-body">
       
-                Schedule a time that is convinient for you
+                Schedule a time to view your order and recieve a quotation.
       
                 <br>
       
                 <form [formGroup]="rForm" (ngSubmit)="scheduleAppointment(rForm.value)">
-                  <input type="datetime-local" name="from" id="from" class="form-control" formControlName="from">
-                  <div class="alertbox" *ngIf="!rForm.controls['from'].valid && rForm.controls['from'].touched"> This is required</div>
                   <br>
-                  <input type="datetime-local" class="form-control" name="to" id="to" formControlName="to">
-                  <div class="alertbox" *ngIf="!rForm.controls['to'].valid && rForm.controls['to'].touched"> This is required</div>
+                  <br>
+                  <!-- Date and Time pickers -->
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- Time Picker -->
+                      <label for="time">Time</label>
+                      <input type="time" class="form-control" formControlName="time" id="time">
+                      <p class="text-muted" style="font-size: x-small">Tell us a time you're likely available</p>
+                      <!-- /Time Picker -->
+                    </div>
+                    <div class="col-sm-8">
+                      <label for="date">Date</label>
+                      <input type="date" name="date" id="date" formControlName="date" class="form-control">
+                      <p class="text-muted" style="font-size: x-small">Required: Schedule a day to visit</p>
+                    </div>
+                  </div>
+                  <div class="alertbox" *ngIf="!rForm.controls['date'].valid && rForm.controls['date'].touched">Date is required, time is optional</div>
                   <br>
                   <mat-form-field>
                     <mat-select placeholder="County" formControlName="select">
@@ -249,11 +262,11 @@
                   <input type="text" name="street" id="street" class="form-control" formControlName="street" placeholder="Street Address">
                   <div class="alertbox" *ngIf="!rForm.controls['street'].valid && rForm.controls['street'].touched">Make it easier to find you...</div>
                   <br>
-                  <input type="number" name="phone" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
-                  <div class="alertbox" *ngIf="!rForm.controls['phone'].valid && rForm.controls['phone'].touched">We'd like to call on arrival</div>
+                  <input type="tel" name="phone" id="phone" class="form-control" formControlName="phone" (ngModelChange)="checkPhone(rForm.controls['phone'].value)" placeholder="Phone">
+                  <div class="alertbox" *ngIf="!rForm.controls['phone'].valid && rForm.controls['phone'].touched">Please enter a valid phone number</div>
                   <br>
                   <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-                  <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">You'll need to recieve important notifications</div>
+                  <div class="alertbox" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">Email is required to send you a quotation.</div>
                   <br>
                   <div class="md-form">
                       <textarea name="desc" class="md-textarea" formControlName="description" id="desc" placeholder="(Optional) A short description of the issue." length="15"></textarea>

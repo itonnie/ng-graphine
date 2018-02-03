@@ -5,3 +5,7 @@
 [0124/193544.352:ERROR:process_info.cc(632)] range at 0x71ad2a8000000000, size 0x221 fully unreadable
 [0124/193544.353:ERROR:process_info.cc(632)] range at 0x0, size 0x221 fully unreadable
 [0125/141450.460:ERROR:settings.cc(258)] Settings magic is not 1129342067
+[0203/102209.760:ERROR:process_info.cc(632)] range at 0xa90e362000000000, size 0x22c fully unreadable
+[0203/102209.971:ERROR:process_info.cc(632)] range at 0xa90e368000000000, size 0x22c fully unreadable
+[0203/102209.971:ERROR:process_info.cc(632)] range at 0x0, size 0x22c fully unreadable
+[0203/102255.734:ERROR:scoped_process_suspend.cc(39)] NtResumeProcess: An attempt was made to access an exiting process.  (0xc000010a)

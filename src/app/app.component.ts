@@ -68,4 +68,9 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  openMap() {
+    var url = "https://www.google.com.sa/maps/search/-1.229343,36.879184,12.21z?h1=en";
+    window.open(url, '_blank');
+  }
+
 }

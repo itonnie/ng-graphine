@@ -12,7 +12,7 @@ import { MatSnackBar } from "@angular/material";
 export class DashloginComponent implements OnInit {
 
   acc_type = "admin";
-  access_level: any;
+  access_level: any = "Admin";
   adminLoginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private live: AppdataService, private router: Router,
@@ -34,7 +34,7 @@ export class DashloginComponent implements OnInit {
         duration: 3000
       })
     } else {
-      this.live.login(value.access_level, value.email, value.password).subscribe(response => {
+      this.live.login(value.access_level.toLowerCase(), value.email, value.password).subscribe(response => {
         console.log(response);
         if(response.ok == true) {
           window.localStorage.setItem("username", response.data.username);

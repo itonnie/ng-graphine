@@ -1,9 +1,14 @@
 <div class="container">
+  <div class="text-center">
+      <button mat-icon-button [routerLink]="['/']">
+        <mat-icon>home</mat-icon>
+      </button>
+  </div>
   <mat-card>
     <div class="text-center">
-      <h3>Login as {{acc_type}}</h3>
+      <h3>Login as {{access_level}}</h3>
 
-      <img src="./assets/icons/login.png" height="100px" width="100px" alt="Login Image">
+      <img src="./assets/images/graphine_logo.png" height="100px" width="100px" alt="Login Image">
 
       <br>
       <p>...</p>
@@ -12,9 +17,10 @@
       <form [formGroup]="adminLoginForm" (submit)="adminLoginSubmit(adminLoginForm.value)" class="adminLogin">
         <mat-form-field>
           <mat-select placeholder="Access Level" formControlName="access_level" [(value)]="access_level">
-            <mat-option value="admin">Admin</mat-option>
-            <mat-option value="technician">Technician</mat-option>
-            <mat-option value="manager">Manager</mat-option>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="Expert">Experts</mat-option>
+            <mat-option value="Agent">Agent</mat-option>
+            <mat-option value="Manager">Manager</mat-option>
           </mat-select>
         </mat-form-field>
         <div class="alertbox" *ngIf="!adminLoginForm.controls['access_level'].valid && adminLoginForm.controls['access_level'].touched">Please specify your access level</div>

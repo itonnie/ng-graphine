@@ -2,7 +2,7 @@
 <div *ngIf="isMobile === false; else mobile">
     <mat-toolbar class="header" *ngIf="dashboard == false;">
       <img src="./assets/images/graphine_logo.png" width="40px" height="40px" style="margin: 0 15px;" alt="Logo">
-      <h1 (click)="goHome()">Graphine East Africa Limited</h1>
+      <h1 (click)="goHome()" title="Tap to go home">Graphine East Africa Limited</h1>
       <span class="space"></span>
     
       <button mat-icon-button [matMenuTriggerFor]="mainmenu">
@@ -11,10 +11,9 @@
     
       <mat-menu #mainmenu>
         <button mat-menu-item [routerLink]="['/about']">About Graphine</button>
-        <a href="#" target="blank" mat-menu-item>Chat with us</a>
-        <button mat-menu-item>Find Our Offices</button>
-        <a mat-menu-item href="mailto:info@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a>
-       <!-- <button mat-menu-item (click)="toAdmin()">Dashboard</button> -->
+        <button mat-menu-item>Chat with us</button>
+        <button mat-menu-item (click)="openMap()">Find Our Offices</button>
+        <a mat-menu-item href="mailto:hr@graphineeastafrica.com?subject=Application for a job&body=Hi.%0AThank you for considering to seek a position with the company. Please attach your CV and supporting documents as you specify the position you are currently applying for.">Careers</a>
       </mat-menu>
     </mat-toolbar>
 

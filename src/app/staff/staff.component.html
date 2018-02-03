@@ -3,8 +3,6 @@
   <span class="space"></span>
   <button mat-button (click)="navigate('orders')">Orders</button>
   <button mat-button *ngIf="add_technician == true" (click)="navigate('staff')">Staff</button>
-  <button mat-button *ngIf="generate_report == true" (click)="navigate('stats')">Site Stats</button>
-  <button mat-button *ngIf="view_clients == true" (click)="navigate('clients')">Clients</button>
   <button mat-button (click)="logUserOut()">Log out</button>
 </mat-toolbar>
 

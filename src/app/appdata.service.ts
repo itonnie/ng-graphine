@@ -21,10 +21,10 @@ export class AppdataService {
     return this.http.get('assets/json/counties.json').map(res => res.json());
   }
 
-  makeAppointment(from, to, county, fullname, town, street, phone, category, sub, subsub, desc, email, warranty) {
+  makeAppointment(time, date, county, fullname, town, street, phone, category, sub, subsub, desc, email, warranty) {
     return this.http.post(this.host+'/addschedule', {
-      from: from,
-      to: to,
+      time: time,
+      date: date,
       county: county,
       category: category,
       fullname: fullname,
