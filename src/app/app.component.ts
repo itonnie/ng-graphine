@@ -69,7 +69,7 @@ export class AppComponent {
   }
 
   openMap() {
-    var url = "https://www.google.com.sa/maps/search/-1.229343,36.879184,12.21z?h1=en";
+    var url = "http://www.google.com/maps/place/-1.229337,36.879173";
     window.open(url, '_blank');
   }
 
