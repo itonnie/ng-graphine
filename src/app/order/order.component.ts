@@ -30,6 +30,7 @@ export class OrderComponent implements OnInit {
   cancelled: Boolean;
   email: String;
   time: Date;
+  schedule_datentime: Date;
   date: Date;
   timestamp: Date;
   desc: String;
@@ -81,6 +82,7 @@ export class OrderComponent implements OnInit {
         this.time = response.data.time;
         this.date = response.data.date;
         this.timestamp = new Date(response.data.timestamp);
+        this.schedule_datentime = new Date(response.data.date + ',' + response.data.time);
         this.price = response.data.price;
         this.desc = response.data.desc;
         this.comments = response.data.comments;

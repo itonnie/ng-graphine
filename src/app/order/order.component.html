@@ -44,10 +44,10 @@
           <div class="timewrapper">
               <mat-list>
                 <h3 style="font-weight: 900" matSubHeader>Scheduled Date & Time</h3>
-                <mat-list-item style="color: #333">{{date | date:'shortDate':'+0300':'en'}} - {{time | date:'shortTime':'+0300':'en'}}</mat-list-item>
+                <mat-list-item style="color: #333">{{schedule_datentime | date:'short':'+0300':'en'}}</mat-list-item>
                 
                 <h5 style="font-weight: 900" matSubHeader>Scheduled on</h5>
-                {{timestamp | date:'fullDate':'+0300':'en'}}
+                {{timestamp | date:'medium':'+0300':'en'}}
               </mat-list>
           </div>
       </div>
