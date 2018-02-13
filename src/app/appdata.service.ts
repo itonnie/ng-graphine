@@ -10,9 +10,11 @@ export class AppdataService {
   private idSource = new BehaviorSubject<String>("");
   private staffIdSource = new BehaviorSubject<String>("");
   private stafflevel = new BehaviorSubject<String>("");
+
   currentId = this.idSource.asObservable();
   currentStaffId = this.staffIdSource.asObservable();
   currentLevel = this.stafflevel.asObservable();
+
   host: String = "";
 
   constructor(public http: Http) { }
@@ -142,6 +144,10 @@ export class AppdataService {
     }).map(res => res.json());
   }
 
+  getFeedback() {
+    return this.http.get("/feedback").map(res => res.json());
+  }
+
   comment(username, id, comment) {
     return this.http.post(this.host+"/admin/comment", {
       id: id,
@@ -174,6 +180,13 @@ export class AppdataService {
       current: current,
       newpassword: newp
     }).map(res => res.json());
+  }
+
+  dispatchTechnician(id, username) {
+    return this.http.post(this.host+"/admin/dispach_expert", {
+      id: id,
+      techname: username
+    });
   }
 
 }

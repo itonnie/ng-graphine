@@ -3,7 +3,15 @@
   <span class="space"></span>
   <button mat-button (click)="navigate('orders')">Orders</button>
   <button mat-button *ngIf="add_technician == true" (click)="navigate('staff')">Staff</button>
-  <button mat-button (click)="logUserOut()">Log out</button>
+
+  <button mat-icon-button [matMenuTriggerFor]="homemainmenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #homemainmenu="matMenu">
+    <button mat-menu-item (click)="changePassword()">Change Password</button>
+    <button mat-menu-item (click)="logUserOut()">Log Out</button>
+  </mat-menu>
 </mat-toolbar>
 
 <mat-tab-group>

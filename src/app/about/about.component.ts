@@ -34,6 +34,7 @@ export class AboutComponent implements OnInit {
         this.snack.open(response.message, "Ok", {
           duration: 5000  
         });
+        this.talkForm.reset();
       });
     }
   }

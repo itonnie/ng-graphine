@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
     <h3>Order for {{fullname}}</h3>
     <span class="space"></span>
+    <!-- Sending a text message to user 
+    <button (click)="sendSMS()">Send Text</button>
+    -->
     <a mat-button href="mailto://{{email}}?subject=Graphine EA Services for {{sub}}/{{subsub}} scheduled by you, {{fullname}}.">Email {{fullname}}</a>
     <a *ngIf="quoted" href="mailto://{{email}}?subject=Quotation for order.&body=Graphine EA Limited. %0A%0A Quotation for {{sub}} > {{subsub}} services requested. %0A Price: KES{{price}} %0A%0A Payment can be made via our Mpesa PayBill Number: 000000" mat-button>Email Quote</a>
     <button mat-raised-button color="accent" style="margin: 5px;" (click)="cancelOrder(id)">Cancel Order</button>
@@ -23,7 +26,7 @@
       <mat-list-item>{{street}}</mat-list-item>
     </mat-list>
 
-    <mat-list [disable]="quote_order">
+    <mat-list [disable]="quote_order" *ngIf="quote_order == true">
       <h5 matSubHeader>Quotation</h5>
       <input type="number" length="6" [(ngModel)]="quotation_box" class="form-control" mat-list-item style="width: 80%; font-size: large; color: white;" placeholder="KES">
       <button mat-raised-button color="primary" (click)="quoteOrder(id, quotation_box)">Quote</button>
@@ -52,6 +55,19 @@
           </div>
       </div>
       <div class="col-sm-6">
+        <form [formGroup]="dispatchForm" (submit)="dispatch_tech(dispatchForm.value, id)" *ngIf="add_technician == true">
+            <mat-form-field>
+                <mat-select placeholder="Dispatch Technician" formControlName="tech">
+                  <mat-option *ngFor="let tech of experts" [value]="tech">
+                    {{tech.username}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <input class="btn btn-success" type="submit" value="Dispatch Technician">
+        </form>
+          
+        <button mat-raised-button color="primary" *ngFor="let expert of dispached_experts">{{expert.tech_name}}</button>
+
         <h4 style="font-weight: 800">Description</h4>
         <p>{{desc}}</p>
       </div>

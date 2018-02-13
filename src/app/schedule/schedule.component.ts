@@ -49,7 +49,7 @@ export class ScheduleComponent implements OnInit {
     this.rForm = fb.group({
       'fullname': [null, Validators.required],
       'date': [null, Validators.required],
-      'time': [],
+      'time': [null, Validators.required],
       'town': [null, Validators.required],
       'street': '',
       'select': [null, Validators.required],

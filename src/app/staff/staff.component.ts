@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
+import { DashboardDataService } from "../dashboard-data.service";
 
 @Component({
   selector: 'app-staff',
@@ -22,21 +23,14 @@ export class StaffComponent implements OnInit {
   add_tech: FormGroup;
   add_man: FormGroup;
 
-  constructor(
-    private router: Router, 
-    private fb: FormBuilder, 
-    private snack: MatSnackBar,
-    private appdata: AppdataService
-  ) {
-
-    if(window.localStorage.getItem("username") == null) {
-      this.router.navigate(["/dashlogin"]);
-    } else {
-      this.username = window.localStorage.getItem("username");
+  constructor(private router: Router, private fb: FormBuilder, private snack: MatSnackBar,
+    private appdata: AppdataService, private applive: DashboardDataService) {
+      this.applive.username.subscribe(username => {
+        this.username = username;
+      });
       this.add_technician = Boolean(window.localStorage.getItem("add_technician"));
       this.generate_report = Boolean(window.localStorage.getItem("generate_report"));
       this.view_clients = Boolean(window.localStorage.getItem("view_clients"));
-    }
 
     this.add_tech = this.fb.group({
       "username": [null, Validators.compose([ Validators.minLength(3) ])],
@@ -66,7 +60,7 @@ export class StaffComponent implements OnInit {
   }
 
   logUserOut() {
-    window.localStorage.clear();
+    this.applive.setUsername("");
     this.router.navigate(["/dashlogin"]);
   }
 
@@ -135,6 +129,38 @@ export class StaffComponent implements OnInit {
   viewStaffMember(id, type) {
     this.appdata.setStaffId(id, type);
     this.router.navigate(['/staffdetail']);
+  }
+
+  changePassword() {
+    var currentPassword = prompt("Enter current password", "");
+    var newPassword = prompt("Enter new password", "");
+    var confirmPassword = prompt("Re enter new password", "");
+
+    if(newPassword != confirmPassword) {
+      this.snack.open("Please confirm your new password and try again", "okay", {
+        duration: 3000,
+        verticalPosition: "top"
+      });
+    } else if(currentPassword == "" || newPassword == "" || confirmPassword == "" || newPassword == null || currentPassword == null || confirmPassword == null) {
+      this.snack.open("Passwords aren't allowed to be empty", "Alright", {
+        duration: 3000,
+        verticalPosition: "top"
+      })
+    } else {
+      this.appdata.changepassword(window.localStorage.getItem("username"), currentPassword, newPassword).subscribe(data => {
+        if(data.ok == false) {
+          this.snack.open(data.message, "too bad", {
+            duration: 3000,
+            verticalPosition: "top"
+          });
+        } else {
+          this.snack.open(data.message, "Aw yeah!", {
+            duration: 3000,
+            verticalPosition: "top"
+          });
+        }
+      });
+    }
   }
 
 }

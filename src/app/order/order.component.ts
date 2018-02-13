@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
 import { DatePipe } from "@angular/common";
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MatSnackBar } from "@angular/material";
+import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { window, document } from 'angular-bootstrap-md/utils/facade/browser';
+import { DashboardDataService } from "../dashboard-data.service";
 
 @Component({
   selector: 'app-order',
@@ -12,6 +13,8 @@ import { window, document } from 'angular-bootstrap-md/utils/facade/browser';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
+
+  username: String;
 
   id: String;
   fullname: String;
@@ -35,9 +38,14 @@ export class OrderComponent implements OnInit {
   timestamp: Date;
   desc: String;
   comments: any[];
+  dispached_experts: any[];
+
+  tech: any;
+  experts: any[];
 
   quotation_box: Number;
   commentForm: FormGroup;
+  dispatchForm: FormGroup;
 
   //User permissions
   add_technician: Boolean;
@@ -51,20 +59,31 @@ export class OrderComponent implements OnInit {
   generate_report: Boolean;
   quote_order: Boolean;
   remove_technician: Boolean;
-  view_clients: Boolean;
 
   constructor(
     private rActivated: ActivatedRoute,
     private appdata: AppdataService, 
     private router: Router, 
     private fb: FormBuilder,
-    private snack: MatSnackBar
+    private snack: MatSnackBar, private applive: DashboardDataService, private dialog: MatDialog
   ) {
+
+    //get the username
+    this.applive.username.subscribe(username => {
+      this.username = username;
+    });
+
+    //GET and SET permissions
+    this.applive.quoteorder.subscribe(foo => {
+      this.quote_order = foo;
+    });
+    this.applive.addtechnician.subscribe(fooo => {
+      this.add_technician = fooo;
+    })
 
     this.appdata.currentId.subscribe(data => {
       this.id = data;
       this.appdata.viewOrder(data).subscribe(response => {
-        console.log(response.data);
         this.fullname = response.data.fullname;
         this.phone = response.data.phone;
         this.category = response.data.category;
@@ -86,8 +105,13 @@ export class OrderComponent implements OnInit {
         this.price = response.data.price;
         this.desc = response.data.desc;
         this.comments = response.data.comments;
+        this.dispached_experts = response.data.dispached_experts;
       });
     });
+
+    this.appdata.getTechnicians().subscribe(technicians => {
+      this.experts = technicians.data;
+    })
 
     if(this.id == "") {
       this.router.navigate(['/dashhome']);
@@ -95,6 +119,10 @@ export class OrderComponent implements OnInit {
 
     this.commentForm = this.fb.group({
       "comment": [null, Validators.compose([ Validators.minLength(3), Validators.maxLength(150)])]
+    });
+
+    this.dispatchForm = this.fb.group({
+      "tech": [null]
     });
 
     //set permissions from LocalStorage
@@ -107,10 +135,8 @@ export class OrderComponent implements OnInit {
     this.email_client = Boolean(window.localStorage.getItem("email_client"));
     this.generate_client_info = Boolean(window.localStorage.getItem("generate_client_info"));
     this.generate_report = Boolean(window.localStorage.getItem("generate_report"));
-    this.quote_order = new Boolean(window.localStorage.getItem("quote_order"));
+
     this.remove_technician = Boolean(window.localStorage.getItem("remove_technician"));
-    this.view_clients = Boolean(window.localStorage.getItem("view_clients"));
-    console.log(this.quote_order);
 
   }
 
@@ -136,7 +162,7 @@ export class OrderComponent implements OnInit {
         verticalPosition: "bottom"
       });
     } else {
-      this.appdata.comment(window.localStorage.getItem("username"), id, value.comment).subscribe(response => {
+      this.appdata.comment(this.username, id, value.comment).subscribe(response => {
         this.fullname = response.data.fullname;
         this.phone = response.data.phone;
         this.category = response.data.category;
@@ -157,9 +183,28 @@ export class OrderComponent implements OnInit {
         this.price = response.data.price;
         this.desc = response.data.desc;
         this.comments = response.data.comments;
+        this.dispached_experts = response.data.dispached_experts;
       });
     }
     this.commentForm.controls["comment"].setValue("");
+  }
+
+  dispatch_tech(username, id) {
+    this.appdata.dispatchTechnician(id, username.tech.username).subscribe(data => {
+      this.snack.open(username.tech.username + " successfully dispatched.", "Ok", {
+        duration: 3000,
+        verticalPosition: "top",
+        horizontalPosition: "right",
+      });
+    });
+    this.submitForm(id, { comment: username.tech.username + " has been dispatched to work on project."});
+  }
+
+  sendSMS() {
+    this.dialog.open(SMSDialog, {
+      width: "300px",
+      data: { phone: this.phone, username: this.username, }
+    });
   }
 
   cancelOrder(id) {
@@ -179,4 +224,19 @@ export class OrderComponent implements OnInit {
     })
   }
 
+}
+
+@Component({
+  selector: "sms-dialog",
+  templateUrl: "sms-dialog.html"
+})
+
+export class SMSDialog {
+  constructor(public dialogRef: MatDialogRef<SMSDialog>,@Inject(MAT_DIALOG_DATA) public data: any) {
+    
+  }
+
+  closeSMS() {
+    this.dialogRef.close();
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
 import { MatSnackBar } from "@angular/material";
+import { DashboardDataService } from "../dashboard-data.service";
 
 @Component({
   selector: 'app-dashhome',
@@ -18,51 +19,65 @@ export class DashhomeComponent implements OnInit {
   history: any[];
   
   username: String;
+  accesslevel: String;
+
   add_technician: Boolean;
-  generate_report: Boolean;
   view_clients: Boolean;
 
-  constructor(private router: Router, private link: AppdataService, private snack: MatSnackBar) {
-    if(window.localStorage.getItem("username") == null) {
-      this.router.navigate(["/dashlogin"]);
-    } else {
-      this.username = window.localStorage.getItem("username");
-      this.add_technician = Boolean(window.localStorage.getItem("add_technician"));
-      this.generate_report = Boolean(window.localStorage.getItem("generate_report"));
-      this.view_clients = Boolean(window.localStorage.getItem("view_clients"));
+  constructor(private router: Router, private link: AppdataService, private snack: MatSnackBar,
+  private applive: DashboardDataService) {
+    this.applive.username.subscribe(username => {
+      if(username == "") {
+        this.router.navigate(["/dashlogin"]);
+      } else {
+        this.username = username;
 
-      this.link.getOrders("pending").subscribe(data => {
-        this.pending = data.data;
-      });
+        //set the access level
+        this.applive.accesslevel.subscribe(access => {
+          this.accesslevel = access;
+        });
+        //set add_tech level
+        this.applive.addtechnician.subscribe(boo => {
+          this.add_technician = boo;
+        });
+        //set if user can see client details
+        this.applive.viewclients.subscribe(boo => {
+          this.view_clients = boo;
+        });
 
-      this.link.getOrders("quoted").subscribe(data => {
-        this.quoted = data.data;
-      });
+        this.link.getOrders("pending").subscribe(data => {
+          this.pending = data.data;
+        });
 
-      this.link.getOrders("approved").subscribe(data => {
-        this.approved = data.data;
-      });
+        this.link.getOrders("quoted").subscribe(data => {
+          this.quoted = data.data;
+        });
 
-      this.link.getOrders("completed").subscribe(data => {
-        this.completed = data.data;
-      });
+        this.link.getOrders("approved").subscribe(data => {
+          this.approved = data.data;
+        });
 
-      this.link.getOrders("cancelled").subscribe(data => {
-        this.cancelled = data.data;
-      });
+        this.link.getOrders("completed").subscribe(data => {
+          this.completed = data.data;
+        });
 
-      this.link.getOrders("blank").subscribe(data => {
-        this.history = data.data;
-      });
+        this.link.getOrders("cancelled").subscribe(data => {
+          this.cancelled = data.data;
+        });
 
-    }
+        this.link.getOrders("blank").subscribe(data => {
+          this.history = data.data;
+        });
+      }
+    });
+
   }
 
   ngOnInit() {
   }
 
   logUserOut() {
-    window.localStorage.clear();
+    this.applive.setUsername("");
     this.router.navigate(["/dashlogin"]);
   }
 
@@ -128,7 +143,7 @@ export class DashhomeComponent implements OnInit {
         duration: 3000,
         verticalPosition: "top"
       });
-    } else if(currentPassword == "" || newPassword == "" || confirmPassword == "") {
+    } else if(currentPassword == "" || newPassword == "" || confirmPassword == "" || newPassword == null || currentPassword == null || confirmPassword == null) {
       this.snack.open("Passwords aren't allowed to be empty", "Alright", {
         duration: 3000,
         verticalPosition: "top"

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AppdataService } from "../appdata.service";
 import { MatSnackBar } from "@angular/material";
+import { DashboardDataService } from "../dashboard-data.service";
 
 @Component({
   selector: 'app-dashlogin',
@@ -16,7 +17,7 @@ export class DashloginComponent implements OnInit {
   adminLoginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private live: AppdataService, private router: Router,
-    private snack: MatSnackBar) {
+    private snack: MatSnackBar, private applive: DashboardDataService) {
     this.adminLoginForm = fb.group({
       "access_level": [null],
       "email": [null, Validators.compose([ Validators.email ])],
@@ -28,30 +29,28 @@ export class DashloginComponent implements OnInit {
   }
 
   adminLoginSubmit(value) {
-    console.log(value);
     if(this.adminLoginForm.controls['email'].invalid || this.adminLoginForm.controls['password'].invalid) {
       this.snack.open("Please input valid data", "Dismiss", {
         duration: 3000
       })
     } else {
       this.live.login(value.access_level.toLowerCase(), value.email, value.password).subscribe(response => {
-        console.log(response);
         if(response.ok == true) {
-          window.localStorage.setItem("username", response.data.username);
-          //save permissions
-          window.localStorage.setItem("add_technician", response.data.permissions.add_technician);
-          window.localStorage.setItem("approve_order", response.data.permissions.add_technician);
-          window.localStorage.setItem("cancel_order", response.data.permissions.cancel_order);
-          window.localStorage.setItem("complete_order", response.data.permissions.complete_order);
-          window.localStorage.setItem("delete_technician", response.data.permissions.delete_technician);
-          window.localStorage.setItem("edit_technician", response.data.permissions.edit_technician);
-          window.localStorage.setItem("email_client", response.data.permissions.email_client);
-          window.localStorage.setItem("generate_client_info", response.data.permissions.generate_client_info);
-          window.localStorage.setItem("generate_report", response.data.permissions.generate_report);
-          window.localStorage.setItem("quote_order", response.data.permissions.quote_order);
-          window.localStorage.setItem("remove_technician", response.data.permissions.remove_technician);
-          window.localStorage.setItem("view_clients", response.data.permissions.view_clients);
-
+          //set access level and username, will set permissions as well
+          this.applive.setAccessLevel(value.access_level.toLowerCase());
+          this.applive.setUsername(response.data.username);
+          this.applive.setPermission("add_technician", response.data.permissions.add_technician);
+          this.applive.setPermission("approve_order", response.data.permissions.approve_order);
+          this.applive.setPermission("cancel_order", response.data.permissions.cancel_order);
+          this.applive.setPermission("complete_order", response.data.permissions.complete_order);
+          this.applive.setPermission("delete_technician", response.data.permissions.delete_technician);
+          this.applive.setPermission("edit_technician", response.data.permissions.edit_technician);
+          this.applive.setPermission("email_client", response.data.permissions.email_client);
+          this.applive.setPermission("generate_client_info", response.data.permissions.generate_client_info);
+          this.applive.setPermission("generate_report", response.data.permissions.generate_report);
+          this.applive.setPermission("quote_order", response.data.permissions.quote_order);
+          this.applive.setPermission("remove_technician", response.data.permissions.remove_technician);
+          this.applive.setPermission("view_clients", response.data.permissions.view_clients);
           this.router.navigate(["/dashhome"]);
         } else {
           this.snack.open(response.message, "Dismiss", {

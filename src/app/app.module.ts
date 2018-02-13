@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 //Material Components
 import { MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule } from "@angular/material";
 import { MatListModule, MatSelectModule, MatCardModule, MatTabsModule, MatSnackBarModule } from "@angular/material";
-import { MatExpansionModule, MatInputModule, MatCheckboxModule } from "@angular/material";
+import { MatExpansionModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatDialogConfig} from "@angular/material";
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { ScheduleComponent } from "./schedule/schedule.component";
@@ -19,6 +19,7 @@ import { AboutComponent } from "./about/about.component";
 
 import { AppdataService } from "./appdata.service";
 import { SocketsService } from './sockets.service';
+import { DashboardDataService } from "./dashboard-data.service";
 import { DashhomeComponent } from './dashhome/dashhome.component';
 import { DashloginComponent } from './dashlogin/dashlogin.component';
 import { OrderComponent } from './order/order.component';
@@ -27,6 +28,7 @@ import { StatsComponent } from './stats/stats.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
 import { StaffdetailsComponent } from './staffdetails/staffdetails.component';
+import { SMSDialog } from "./order/order.component"
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { StaffdetailsComponent } from './staffdetails/staffdetails.component';
     StatsComponent,
     ClientsComponent,
     ClientdetailsComponent,
-    StaffdetailsComponent
+    StaffdetailsComponent,
+    SMSDialog
   ],
   imports: [
     BrowserModule,
@@ -64,10 +67,12 @@ import { StaffdetailsComponent } from './staffdetails/staffdetails.component';
     MatSnackBarModule,
     MatExpansionModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [ AppdataService, SocketsService],
-  bootstrap: [AppComponent]
+  providers: [ AppdataService, SocketsService, DashboardDataService, { provide: MatDialogConfig, useValue: {hasBackdrop: true}}],
+  bootstrap: [AppComponent],
+  entryComponents: [ SMSDialog ]
 })
 export class AppModule { }

@@ -241,7 +241,7 @@
                       <p class="text-muted" style="font-size: x-small">Required: Schedule a day to visit</p>
                     </div>
                   </div>
-                  <div class="alertbox" *ngIf="!rForm.controls['date'].valid && rForm.controls['date'].touched">Date is required, time is optional</div>
+                  <div class="alertbox" *ngIf="!rForm.controls['date'].valid && rForm.controls['date'].touched || !rForm.controls['time'].valid && rForm.controls['time'].touched">Date and Time is required.</div>
                   <br>
                   <mat-form-field>
                     <mat-select placeholder="County" formControlName="select">
